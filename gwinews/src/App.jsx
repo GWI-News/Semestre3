@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState, useEffect } from 'react';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from './firebase/config';
-import Noticia from './components/Noticia/Noticia';
+
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Teste from './components/Teste/Teste';
+import Header from './components/Header/Header';
 
 function App() {
   const [noticias, setNoticias] = useState([])
@@ -19,9 +20,20 @@ function App() {
     getNoticias()
   }, [])
 
+  const [logos, setLogos] = useState([])
+  const logosCollectionRef = collection(db, 'Logos')
+
+  useEffect(() => {
+    const getLogos = async () => {
+      const data = await getDocs(logosCollectionRef)
+      setLogos(data.docs.map(doc => ({...doc.data(), id: doc.id})))
+    }
+    getLogos()
+  }, [])
+
   return (
     <>
-    <Noticia list={ noticias }></Noticia>
+      <Header logos={logos}></Header>
     </>
   )
 }

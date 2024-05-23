@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Teste from './components/Teste/Teste';
 import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const [noticias, setNoticias] = useState([])
@@ -34,6 +35,7 @@ function App() {
   return (
     <>
       <Header logos={logos}></Header>
+      <Navbar></Navbar>
     </>
   )
 }

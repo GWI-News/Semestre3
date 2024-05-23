@@ -1,0 +1,15 @@
+.navbarMobile {
+    height: 12vh;
+    background-color: #EBEBEB;
+    border-top: 0.75rem solid #1D4988;
+}
+
+.iconsNavbarMobile {
+    fill: #1D4988!important;
+}
+
+.pNavbarMobile {
+    line-height: 1rem;
+    color: #1D4988;
+    font-weight: 600;
+}

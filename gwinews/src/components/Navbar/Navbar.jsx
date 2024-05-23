@@ -17,6 +17,25 @@ const Navbar = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
+    var separatorColorClass = styles.navbarPadrao
+    switch (location.pathname) {
+        case '/Educacao':
+            separatorColorClass = styles.navbarEducacao
+            break
+        case '/Esportes':
+            separatorColorClass = styles.navbarEsportes
+            break
+        case '/Entretenimento':
+            separatorColorClass = styles.navbarEntretenimento
+            break
+        case '/Economia':
+            separatorColorClass = styles.navbarEconomia
+            break
+        default:
+            separatorColorClass = styles.navbarPadrao
+            break
+    }
+
     return (
         <>
             <Offcanvas show={show} onHide={handleClose} placement={'bottom'} className={`${styles.offcanvasCategoriasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
@@ -40,7 +59,7 @@ const Navbar = () => {
                     </Col>
                 </Offcanvas.Body>
             </Offcanvas>
-            <Container onClick={show ? handleClose : null} fluid className={`${styles.navbarMobile} fixed-bottom p-0`}>
+            <Container onClick={show ? handleClose : null} fluid className={`${styles.navbarMobile} ${separatorColorClass} fixed-bottom p-0`}>
                 <Row className={`justify-content-around h-100 m-0`}>
                     <Col xs={3} className='d-flex flex-column justify-content-center align-items-center mt- p-0'>
                         <NavLink to={'/'}>

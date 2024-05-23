@@ -1,8 +1,27 @@
 .navbarMobile {
     height: 12vh;
     background-color: #EBEBEB;
-    border-top: 0.75rem solid #1D4988;
     z-index: 1046;
+}
+
+.navbarPadrao {
+    border-top: 0.75rem solid #1D4988;
+}
+
+.navbarEducacao {
+    border-top: 0.75rem solid #7478AD;
+}
+
+.navbarEsportes {
+    border-top: 0.75rem solid #51BF2C;
+}
+
+.navbarEntretenimento {
+    border-top: 0.75rem solid #F3A807;
+}
+
+.navbarEconomia {
+    border-top: 0.75rem solid #D93D4A;
 }
 
 .iconsNavbarMobile {

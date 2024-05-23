@@ -1,0 +1,93 @@
+.navbarMobile {
+    height: 12vh;
+    background-color: #EBEBEB;
+    border-top: 0.75rem solid #1D4988;
+    z-index: 1046;
+}
+
+.iconsNavbarMobile {
+    fill: #1D4988!important;
+}
+
+.pNavbarMobile {
+    line-height: 1rem;
+    color: #1D4988;
+    font-weight: 600;
+}
+
+.offcanvasCategoriasMobile {
+    width: 90%;
+    height: auto!important;
+    bottom: 12vh;
+    left: 5%!important;
+    background-color: #F9F9F9;
+}
+
+.backdropExtraClass {
+    top: 12vh;
+    height: 76vh;
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    opacity: 1!important;
+}
+
+.linkConatiner:not(:first-child) {
+    border-top: 0.2rem solid #EBEBEB;
+}
+
+.linkCategorias {
+    width: fit-content;
+    text-decoration: none;
+    margin: 0.5rem auto;
+}
+
+.linkCategoriaEmpregos {
+    color: #1D4988;
+}
+
+.linkCategoriaEducacao {
+    color: #7478AD;
+}
+
+.linkCategoriaEsportes {
+    color: #51BF2C;
+}
+
+.linkCategoriaEntretenimento {
+    color: #F3A807;
+}
+
+.linkCategoriaEconomia {
+    color: #D93D4A;
+}
+
+.linkCategoriaAtivo {
+    color: #F9F9F9;
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+}
+
+.linkCategoriaAtivoEmpregos {
+    background-color: #1D4988;
+}
+
+.linkCategoriaAtivoEducacao {
+    background-color: #7478AD;
+}
+
+.linkCategoriaAtivoEsportes {
+    background-color: #51BF2C;
+}
+
+.linkCategoriaAtivoEntretenimento {
+    background-color: #F3A807;
+}
+
+.linkCategoriaAtivoEconomia {
+    background-color: #D93D4A;
+}
+
+.linkCategorias h1 {
+    font-size: 1.75rem;
+    margin: 0;
+}

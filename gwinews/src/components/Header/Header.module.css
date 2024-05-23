@@ -3,3 +3,23 @@
     background-color: #EBEBEB;
     border-bottom: 0.75rem solid #1D4988;
 }
+
+.headerPadrao {
+    border-bottom: 0.75rem solid #1D4988;
+}
+
+.headerEducacao {
+    border-bottom: 0.75rem solid #7478AD;
+}
+
+.headerEsportes {
+    border-bottom: 0.75rem solid #51BF2C;
+}
+
+.headerEntretenimento {
+    border-bottom: 0.75rem solid #F3A807;
+}
+
+.headerEconomia {
+    border-bottom: 0.75rem solid #D93D4A;
+}

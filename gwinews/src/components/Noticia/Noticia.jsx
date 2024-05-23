@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Noticia = (props) => {
+const Noticia = ({noticias}) => {
     return (
         <>
-            {props.list.map((noticia, i) => (
+            {noticias.map((noticia, i) => (
                 <div key={i}>
                     <h2>{noticia.titulo}</h2>
+                    <img src={noticia.img} style={{width:'100px', height:'100px'}} />
                 </div>
             ))}
         </>

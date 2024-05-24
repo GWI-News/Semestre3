@@ -10,6 +10,7 @@ import Teste from './components/Teste/Teste';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Noticia from './components/Noticia/Noticia';
+import Home from './pages/Home/Home';
 
 function App() {
   const [noticias, setNoticias] = useState([])
@@ -34,12 +35,23 @@ function App() {
     getLogos()
   }, [])
 
+  const [propagandas, setPropagandas] = useState([])
+  const propagandasCollectionRef = collection(db, 'Propagandas')
+
+  useEffect(() => {
+    const getPropagandas = async () => {
+      const data = await getDocs(propagandasCollectionRef)
+      setPropagandas(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    }
+    getPropagandas()
+  }, [])
+
   return (
     <>
       <BrowserRouter>
         <Header logos={logos}></Header>
         <Routes>
-          <Route path='/' element={<Noticia noticias={noticias}></Noticia>}></Route>
+          <Route path='/' element={<Home noticias={noticias}></Home>}></Route>
           <Route path='/Empregos/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'empregos')}></Noticia>}></Route>
           <Route path='/Educacao/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'educacao')}></Noticia>}></Route>
           <Route path='/Esportes/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'esportes')}></Noticia>}></Route>

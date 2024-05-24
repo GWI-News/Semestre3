@@ -1,0 +1,8 @@
+.home{
+    margin-top: 12vh;
+    margin-bottom: 12vh;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #ebebeb;
+}

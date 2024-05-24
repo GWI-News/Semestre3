@@ -17,22 +17,24 @@ const Navbar = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
-    var separatorColorClass = styles.navbarPadrao
+    const categoryPath = ['/Empregos', '/Educacao', '/Esportes', '/Entretenimento', '/Economia'].includes(location.pathname)
+
+    var offcanvasCategorySelected = styles.navbarPadrao
     switch (location.pathname) {
         case '/Educacao':
-            separatorColorClass = styles.navbarEducacao
+            offcanvasCategorySelected = styles.navbarEducacao
             break
         case '/Esportes':
-            separatorColorClass = styles.navbarEsportes
+            offcanvasCategorySelected = styles.navbarEsportes
             break
         case '/Entretenimento':
-            separatorColorClass = styles.navbarEntretenimento
+            offcanvasCategorySelected = styles.navbarEntretenimento
             break
         case '/Economia':
-            separatorColorClass = styles.navbarEconomia
+            offcanvasCategorySelected = styles.navbarEconomia
             break
         default:
-            separatorColorClass = styles.navbarPadrao
+            offcanvasCategorySelected = styles.navbarPadrao
             break
     }
 
@@ -59,25 +61,31 @@ const Navbar = () => {
                     </Col>
                 </Offcanvas.Body>
             </Offcanvas>
-            <Container onClick={show ? handleClose : null} fluid className={`${styles.navbarMobile} ${separatorColorClass} fixed-bottom p-0`}>
+            <Container onClick={show ? handleClose : null} fluid className={`${styles.navbarMobile} ${offcanvasCategorySelected} fixed-bottom p-0`}>
                 <Row className={`justify-content-around h-100 m-0`}>
-                    <Col xs={3} className='d-flex flex-column justify-content-center align-items-center mt- p-0'>
-                        <NavLink to={'/'}>
-                            <HouseFill width="2.5rem" height="2.5rem" fill="#1D4988" className={`${styles.iconsNavbarMobile} mb-1`} />
-                            <p className={`${styles.pNavbarMobile} m-0`}>Home</p>
+                    <Col xs={3} className='d-flex flex-column justify-content-center align-items-center p-0'>
+                        <NavLink to={'/'} className={location.pathname === '/' ? `${styles.navbarIconSelectedCol} text-center text-decoration-none p-1` : `text-center text-decoration-none`}>
+                            <HouseFill className={location.pathname === '/' ? `${styles.navbarIconSelectedIcon} mb-1` : `${styles.iconsNavbarMobile} mb-1`} />
+                            <p className={location.pathname === '/' ? `${styles.navbarIconSelectedP} m-0` : `${styles.pNavbarMobile} m-0`}>Home</p>
                         </NavLink>
                     </Col>
-                    <Col onClick={handleShow} xs={3} className='d-flex flex-column justify-content-center align-items-center mt- p-0'>
-                        <CollectionFill width="2.5rem" height="2.5rem" fill="#1D4988" className={`${styles.iconsNavbarMobile} mb-1`} />
-                        <p className={`${styles.pNavbarMobile} m-0`}>Categorias</p>
+                    <Col onClick={handleShow} xs={3} className='d-flex flex-column justify-content-center align-items-center p-0'>
+                        <div className={categoryPath ? `${styles.navbarIconSelectedCol} d-flex flex-column justify-content-center align-items-center p-1` : 'd-flex flex-column justify-content-center align-items-center p-0'}>
+                            <CollectionFill className={categoryPath ? `${styles.navbarIconSelectedIcon} mb-1` : `${styles.iconsNavbarMobile} mb-1`} />
+                            <p className={categoryPath ? `${styles.navbarIconSelectedP} m-0` : `${styles.pNavbarMobile} m-0`}>Categorias</p>
+                        </div>
                     </Col>
-                    <Col xs={3} className='d-flex flex-column justify-content-center align-items-center mt- p-0'>
-                        <InfoCircleFill width="2.5rem" height="2.5rem" fill="#1D4988" className={`${styles.iconsNavbarMobile} mb-1`} />
-                        <p className={`${styles.pNavbarMobile} m-0`}>Sobre Nós</p>
+                    <Col xs={3} className='d-flex flex-column justify-content-center align-items-center p-0'>
+                        <NavLink to={'/SobreNos'} className={location.pathname === '/SobreNos' ? `${styles.navbarIconSelectedCol} text-center text-decoration-none p-1` : `text-center text-decoration-none`}>
+                            <InfoCircleFill className={location.pathname === '/SobreNos' ? `${styles.navbarIconSelectedIcon} mb-1` : `${styles.iconsNavbarMobile} mb-1`} />
+                            <p className={location.pathname === '/SobreNos' ? `${styles.navbarIconSelectedP} m-0` : `${styles.pNavbarMobile} m-0`}>Sobre</p>
+                        </NavLink>
                     </Col>
-                    <Col xs={3} className='d-flex flex-column justify-content-center align-items-center mt- p-0'>
-                        <PersonCircle width="2.5rem" height="2.5rem" fill="#1D4988" className={`${styles.iconsNavbarMobile} mb-1`} />
-                        <p className={`${styles.pNavbarMobile} m-0`}>Perfil</p>
+                    <Col xs={3} className='d-flex flex-column justify-content-center align-items-center p-0'>
+                        <div className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedCol} d-flex flex-column justify-content-center align-items-center p-1` : 'd-flex flex-column justify-content-center align-items-center p-0'}>
+                            <PersonCircle className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedIcon} mb-1` : `${styles.iconsNavbarMobile} mb-1`} />
+                            <p className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedP} m-0` : `${styles.pNavbarMobile} m-0`}>Perfil</p>
+                        </div>
                     </Col>
                 </Row>
             </Container>

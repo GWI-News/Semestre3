@@ -25,12 +25,32 @@
 }
 
 .iconsNavbarMobile {
+    width: 2.5rem;
+    height: 2.5rem;
     fill: #1D4988!important;
 }
 
 .pNavbarMobile {
     line-height: 1rem;
     color: #1D4988;
+    font-weight: 600;
+}
+
+.navbarIconSelectedCol {
+    border-radius: 5px;
+    background-color: #1D4988;
+}
+
+.navbarIconSelectedIcon {
+    width: 2rem;
+    height: 2rem;
+    fill: #F9F9F9!important;
+}
+
+.navbarIconSelectedP {
+    line-height: 1rem;
+    font-size: 1rem;
+    color: #F9F9F9;
     font-weight: 600;
 }
 

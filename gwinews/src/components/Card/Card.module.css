@@ -1,0 +1,20 @@
+.card{
+    width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.image {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+} 
+.title {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 4px;
+    align-items: center;
+    flex-direction: column;
+}
+

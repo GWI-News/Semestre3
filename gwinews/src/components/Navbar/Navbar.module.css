@@ -54,12 +54,61 @@
     font-weight: 600;
 }
 
-.offcanvasCategoriasMobile {
+.offcanvasMobile {
     width: 90%;
     height: auto!important;
     bottom: 12vh;
     left: 5%!important;
     background-color: #F9F9F9;
+}
+
+.offcanvasTitle {
+    width: 100%;
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #1D4988;
+    border-bottom: 0.2rem solid #EBEBEB;
+}
+
+.formLabelMobile {
+    font-size: 1.5rem;
+    color: #1D4988;
+    font-weight: 600;
+    margin: 0;
+}
+
+.formInputMobile {
+    background-color: #EBEBEB;
+    padding: 0.5rem;
+}
+
+.formInputMobile::placeholder {
+    color: #141414;
+}
+
+.formInputMobile:focus {
+    box-shadow: 0 0 10px #1D4988;
+}
+
+.formButtonMobile {
+    width: 46%;
+    font-size: 1.5rem;
+    line-height: 1.6rem;
+    color: #F9F9F9;
+    background-color: #1D4988;
+    padding: 0.25rem 0.5rem;
+}
+
+.formButtonMobile:focus {
+    background-color: #1D4988;
+    box-shadow: 0 0 10px #1D4988;
+}
+
+.formSmallMobile {
+    color: #1D4988;
+    font-weight: 500;
+    align-self: flex-end;
+    margin-left: 0.5rem;
 }
 
 .backdropExtraClass {

@@ -11,6 +11,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Noticia from './components/Noticia/Noticia';
 import Home from './pages/Home/Home';
+import SobreNosPage from './pages/SobreNos/SobreNos';
 
 function App() {
   const [noticias, setNoticias] = useState([])
@@ -57,7 +58,7 @@ function App() {
           <Route path='/Esportes/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'esportes')}></Noticia>}></Route>
           <Route path='/Entretenimento/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'entretenimento')}></Noticia>}></Route>
           <Route path='/Economia/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'economia')}></Noticia>}></Route>
-          <Route path='/SobreNos/'></Route>
+          <Route path='/SobreNos/' element={<SobreNosPage />} /> {'./pages/SobreNos/SobreNos'}
           <Route path='/Perfil/'></Route>
           <Route path='*' element={<Navigate to='/' />}></Route>
         </Routes>

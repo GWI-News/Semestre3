@@ -25,19 +25,27 @@ const Navbar = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const { login, error: authError, loading } = userAuthentication()
-    const handlerSubmit = async (e) => {
+    const handlerLoginSubmit = async (e) => {
         e.preventDefault()
         setError('')
         const user = { email, password }
         const res = await login(user)
         console.table(res)
         navigate('/Perfil')
+        setEmail('')
+        setPassword('')
     }
     useEffect(() => {
         if (authError) {
             setError(authError)
         }
     }, [authError])
+
+    useEffect(() => {
+        handleCloseCategories()
+        handleCloseLogin()
+        handleCloseSignUp()
+    }, [location.pathname])
 
     const [showCategories, setShowCategories] = useState(false)
     const handleCloseCategories = () => setShowCategories(false)
@@ -78,19 +86,19 @@ const Navbar = () => {
                 <Offcanvas.Body className={'pt-2 pb-2'}>
                     <Col className={`${styles.colCategorias} d-flex flex-column justify-content-center align-items-center`}>
                         <Row className={`${styles.linkConatiner} w-100`}>
-                            <NavLink to={'/Empregos'} className={location.pathname === '/Empregos' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEmpregos}` : `${styles.linkCategorias} ${styles.linkCategoriaEmpregos}`} onClick={handleCloseCategories}><h1>Empregos</h1></NavLink>
+                            <NavLink to={'/Empregos'} className={location.pathname === '/Empregos' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEmpregos}` : `${styles.linkCategorias} ${styles.linkCategoriaEmpregos}`}><h1>Empregos</h1></NavLink>
                         </Row>
                         <Row className={`${styles.linkConatiner} w-100`}>
-                            <NavLink to={'/Educacao'} className={location.pathname === '/Educacao' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEducacao}` : `${styles.linkCategorias} ${styles.linkCategoriaEducacao}`} onClick={handleCloseCategories}><h1>Educação</h1></NavLink>
+                            <NavLink to={'/Educacao'} className={location.pathname === '/Educacao' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEducacao}` : `${styles.linkCategorias} ${styles.linkCategoriaEducacao}`}><h1>Educação</h1></NavLink>
                         </Row>
                         <Row className={`${styles.linkConatiner} w-100`}>
-                            <NavLink to={'/Esportes'} className={location.pathname === '/Esportes' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEsportes}` : `${styles.linkCategorias} ${styles.linkCategoriaEsportes}`} onClick={handleCloseCategories}><h1>Esportes</h1></NavLink>
+                            <NavLink to={'/Esportes'} className={location.pathname === '/Esportes' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEsportes}` : `${styles.linkCategorias} ${styles.linkCategoriaEsportes}`}><h1>Esportes</h1></NavLink>
                         </Row>
                         <Row className={`${styles.linkConatiner} w-100`}>
-                            <NavLink to={'/Entretenimento'} className={location.pathname === '/Entretenimento' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEntretenimento}` : `${styles.linkCategorias} ${styles.linkCategoriaEntretenimento}`} onClick={handleCloseCategories}><h1>Entretenimento</h1></NavLink>
+                            <NavLink to={'/Entretenimento'} className={location.pathname === '/Entretenimento' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEntretenimento}` : `${styles.linkCategorias} ${styles.linkCategoriaEntretenimento}`}><h1>Entretenimento</h1></NavLink>
                         </Row>
                         <Row className={`${styles.linkConatiner} w-100`}>
-                            <NavLink to={'/Economia'} className={location.pathname === '/Economia' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEconomia}` : `${styles.linkCategorias} ${styles.linkCategoriaEconomia}`} onClick={handleCloseCategories}><h1>Economia</h1></NavLink>
+                            <NavLink to={'/Economia'} className={location.pathname === '/Economia' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEconomia}` : `${styles.linkCategorias} ${styles.linkCategoriaEconomia}`}><h1>Economia</h1></NavLink>
                         </Row>
                     </Col>
                 </Offcanvas.Body>
@@ -100,7 +108,7 @@ const Navbar = () => {
                     <h1 className={`${styles.offcanvasTitle} m-0 pt-1 pb-2`}>Login</h1>
                 </Offcanvas.Header>
                 <Offcanvas.Body className='ps-2 pe-2 pt-0 pb-1'>
-                    <Form onSubmit={handlerSubmit} className='d-flex flex-column justify-content-center'>
+                    <Form onSubmit={handlerLoginSubmit} className='d-flex flex-column justify-content-center'>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Email:</Form.Label>
                             <Form.Control type='email' name='email' required value={email} onChange={(e) => setEmail(e.target.value)} placeholder='usuario@email.com' className={styles.formInputMobile} />

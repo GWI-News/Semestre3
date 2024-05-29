@@ -17,6 +17,7 @@ import Navbar from './components/Navbar/Navbar';
 import Noticia from './components/Noticia/Noticia';
 import Home from './pages/Home/Home';
 import Perfil from './pages/Perfil/Perfil';
+import SobreNos from './pages/SobreNos/SobreNos';
 
 function App() {
   const [user, setUser] = useState(undefined)
@@ -78,7 +79,7 @@ function App() {
             <Route path='/Esportes/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'esportes')}></Noticia>}></Route>
             <Route path='/Entretenimento/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'entretenimento')}></Noticia>}></Route>
             <Route path='/Economia/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'economia')}></Noticia>}></Route>
-            <Route path='/SobreNos/'></Route>
+            <Route path='/SobreNos/' element={<SobreNos></SobreNos>}></Route>
             <Route path='/Perfil/' element={<Perfil></Perfil>}></Route>
             <Route path='*' element={<Navigate to='/' />}></Route>
           </Routes>

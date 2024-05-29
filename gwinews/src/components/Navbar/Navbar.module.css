@@ -83,7 +83,7 @@
 }
 
 .formInputMobile::placeholder {
-    color: #141414;
+    color: rgb(20, 20, 20, 0.5);
 }
 
 .formInputMobile:focus {
@@ -91,12 +91,15 @@
 }
 
 .formButtonMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 46%;
     font-size: 1.5rem;
-    line-height: 1.6rem;
+    line-height: 1.5rem;
     color: #F9F9F9;
     background-color: #1D4988;
-    padding: 0.25rem 0.5rem;
+    padding: 0.3rem 0.5rem 0.45rem;
 }
 
 .formButtonMobile:focus {

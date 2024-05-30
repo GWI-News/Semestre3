@@ -1,5 +1,5 @@
 import { db } from '../firebase/config'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateProfile } from 'firebase/auth'
 import { useState, useEffect } from 'react'
 
 export const userAuthentication = () => {
@@ -48,9 +48,35 @@ export const userAuthentication = () => {
         signOut(auth)
     }
 
+    const forgotPassword = async (data) => {
+        checkIfIsCancelled()
+
+        setLoading(true)
+        setError(null)
+
+        try {
+            await sendPasswordResetEmail(auth, data.email)
+            setLoading(false)
+        } catch (error) {
+            console.error(error.message)
+            console.table(typeof error.message)
+
+            let systemErrorMessage
+
+            if (error.message.includes('invalid-login-credentials')) {
+                systemErrorMessage = 'Este Usuário não Está Cadastrado.'
+            } else {
+                systemErrorMessage = 'Ocorreu um Erro, Tente Novamente mais Tarde.'
+            }
+
+            setLoading(false)
+            setError(systemErrorMessage)
+        }
+    }
+
     useEffect(() => {
         return () => setCancelled(true)
     }, [])
 
-    return { auth, login, logout, loading, error }
+    return { auth, login, logout, forgotPassword, loading, error }
 }

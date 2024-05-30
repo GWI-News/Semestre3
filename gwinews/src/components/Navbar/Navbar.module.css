@@ -112,6 +112,14 @@
     font-weight: 500;
     align-self: flex-end;
     margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.formTextMobile {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #141414;
+    margin-bottom: 0.25rem;
 }
 
 .backdropExtraClass {

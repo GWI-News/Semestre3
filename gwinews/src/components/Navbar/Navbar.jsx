@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { NavLink, Navigate, useNavigate, useLocation } from 'react-router-dom'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
 import { userAuthentication } from '../../hooks/userAuthentication'
@@ -19,13 +19,13 @@ const Navbar = () => {
     const location = useLocation()
 
     const { user } = useAuthValue()
-    const { logout } = userAuthentication()
+    const { login, forgotPassword, error: authError, loading } = userAuthentication()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const { login, error: authError, loading } = userAuthentication()
-    const handlerLoginSubmit = async (e) => {
+
+    const handlerSubmitLogin = async (e) => {
         e.preventDefault()
         setError('')
         const user = { email, password }
@@ -35,6 +35,17 @@ const Navbar = () => {
         setEmail('')
         setPassword('')
     }
+
+    const handlerSubmitForgotPassword = async (e) => {
+        e.preventDefault()
+        setError('')
+        const user = { email }
+        const res = await forgotPassword(user)
+        console.table(res)
+        handleShowLogin()
+        setEmail('')
+    }
+
     useEffect(() => {
         if (authError) {
             setError(authError)
@@ -45,6 +56,7 @@ const Navbar = () => {
         handleCloseCategories()
         handleCloseLogin()
         handleCloseSignUp()
+        handleCloseForgotPassword()
     }, [location.pathname])
 
     const [showCategories, setShowCategories] = useState(false)
@@ -58,6 +70,10 @@ const Navbar = () => {
     const [showSignUp, setShowSignUp] = useState(false)
     const handleCloseSignUp = () => setShowSignUp(false)
     const handleShowSignUp = () => setShowSignUp(true)
+
+    const [showForgotPassword, setShowForgotPassword] = useState(false)
+    const handleCloseForgotPassword = () => setShowForgotPassword(false)
+    const handleShowForgotPassword = () => setShowForgotPassword(true)
 
     const categoryPath = ['/Empregos', '/Educacao', '/Esportes', '/Entretenimento', '/Economia'].includes(location.pathname)
 
@@ -108,7 +124,7 @@ const Navbar = () => {
                     <h1 className={`${styles.offcanvasTitle} m-0 pt-1 pb-2`}>Login</h1>
                 </Offcanvas.Header>
                 <Offcanvas.Body className='ps-2 pe-2 pt-0 pb-1'>
-                    <Form onSubmit={handlerLoginSubmit} className='d-flex flex-column justify-content-center'>
+                    <Form onSubmit={handlerSubmitLogin} className='d-flex flex-column justify-content-center'>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Email:</Form.Label>
                             <Form.Control type='email' name='email' required value={email} onChange={(e) => setEmail(e.target.value)} placeholder='usuario@email.com' className={styles.formInputMobile} />
@@ -117,7 +133,7 @@ const Navbar = () => {
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Senha:</Form.Label>
                             <Form.Control type='password' name='password' required value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Digite sua senha' className={styles.formInputMobile} />
-                            <small className={styles.formSmallMobile}>Recuperar Senha</small>
+                            <small onClick={() => { handleShowForgotPassword(); handleCloseLogin(); }} className={styles.formSmallMobile}>Recuperar Senha</small>
                         </Form.Group>
                         <div className='d-flex justify-content-between align-items-center pt-2 pb-2'>
                             {!loading && <button className={`${styles.formButtonMobile} btn btn-primary`}>Entrar</button>}
@@ -159,7 +175,25 @@ const Navbar = () => {
                     </Form>
                 </Offcanvas.Body>
             </Offcanvas>
-            <Container onClick={showCategories || showLogin || showSignUp ? () => { handleCloseCategories(); handleCloseLogin(); handleCloseSignUp(); } : null} fluid className={`${styles.navbarMobile} ${offcanvasCategorySelected} fixed-bottom p-0`}>
+            <Offcanvas show={showForgotPassword} onHide={handleCloseForgotPassword} placement='bottom' className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
+                <Offcanvas.Header className='justify-content-center text-center ps-2 pe-2 pt-1 pb-1'>
+                    <h1 className={`${styles.offcanvasTitle} m-0 pt-1 pb-2`}>Recuperar Senha</h1>
+                </Offcanvas.Header>
+                <Offcanvas.Body className='ps-2 pe-2 pt-0 pb-1'>
+                    <Form onSubmit={handlerSubmitForgotPassword} className='d-flex flex-column justify-content-center'>
+                        <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
+                            <Form.Text className={styles.formTextMobile}>Insira o Email cadastrado em nosso sistema para receber o email de redefinição de senha.</Form.Text>
+                            <Form.Label className={styles.formLabelMobile}>Email:</Form.Label>
+                            <Form.Control type='email' name='email' required value={email} onChange={(e) => setEmail(e.target.value)} placeholder='usuario@email.com' className={styles.formInputMobile} />
+                        </Form.Group>
+                        <div className='d-flex justify-content-center align-items-center pt-2 pb-2'>
+                            {!loading && <button className={`${styles.formButtonMobile} btn btn-primary`}>Enviar</button>}
+                            {loading && <button className={`${styles.formButtonMobile} btn btn-primary`}>Aguarde...</button>}
+                        </div>
+                    </Form>
+                </Offcanvas.Body>
+            </Offcanvas>
+            <Container onClick={showCategories || showLogin || showSignUp || showForgotPassword ? () => { handleCloseCategories(); handleCloseLogin(); handleCloseSignUp(); handleCloseForgotPassword(); } : null} fluid className={`${styles.navbarMobile} ${offcanvasCategorySelected} fixed-bottom p-0`}>
                 <Row className={`justify-content-around h-100 m-0`}>
                     <Col xs={3} className='d-flex flex-column justify-content-center align-items-center p-0'>
                         <NavLink to={'/'} className={location.pathname === '/' ? `${styles.navbarIconSelectedCol} text-center text-decoration-none p-1` : `text-center text-decoration-none`}>

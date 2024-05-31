@@ -14,10 +14,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Noticia from './components/Noticia/Noticia';
-import Home from './pages/Home/Home';
-import Perfil from './pages/Perfil/Perfil';
+import NewsPage from './pages/NewsPage/NewsPage';
 import SobreNos from './pages/SobreNos/SobreNos';
+import Perfil from './pages/Perfil/Perfil';
 
 function App() {
   const [user, setUser] = useState(undefined)
@@ -73,12 +72,12 @@ function App() {
         <BrowserRouter>
           <Header logos={logos}></Header>
           <Routes>
-            <Route path='/' element={<Home noticias={noticias}></Home>}></Route>
-            <Route path='/Empregos/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'empregos')}></Noticia>}></Route>
-            <Route path='/Educacao/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'educacao')}></Noticia>}></Route>
-            <Route path='/Esportes/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'esportes')}></Noticia>}></Route>
-            <Route path='/Entretenimento/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'entretenimento')}></Noticia>}></Route>
-            <Route path='/Economia/' element={<Noticia noticias={noticias.filter(noticia => noticia.categoria === 'economia')}></Noticia>}></Route>
+            <Route path='/' element={<NewsPage noticias={noticias}></NewsPage>}></Route>
+            <Route path='/Empregos/' element={<NewsPage noticias={noticias.filter(noticia => noticia.categoria === 'empregos')}></NewsPage>}></Route>
+            <Route path='/Educacao/' element={<NewsPage noticias={noticias.filter(noticia => noticia.categoria === 'educacao')}></NewsPage>}></Route>
+            <Route path='/Esportes/' element={<NewsPage noticias={noticias.filter(noticia => noticia.categoria === 'esportes')}></NewsPage>}></Route>
+            <Route path='/Entretenimento/' element={<NewsPage noticias={noticias.filter(noticia => noticia.categoria === 'entretenimento')}></NewsPage>}></Route>
+            <Route path='/Economia/' element={<NewsPage noticias={noticias.filter(noticia => noticia.categoria === 'economia')}></NewsPage>}></Route>
             <Route path='/SobreNos/' element={<SobreNos></SobreNos>}></Route>
             <Route path='/Perfil/' element={<Perfil></Perfil>}></Route>
             <Route path='*' element={<Navigate to='/' />}></Route>

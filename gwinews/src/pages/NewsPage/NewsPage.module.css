@@ -1,8 +1,11 @@
-.home{
+.newsPage{
+    min-height: 76vh;
     margin-top: 12vh;
     margin-bottom: 12vh;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     background-color: #ebebeb;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
 }

@@ -224,7 +224,7 @@ const Navbar = () => {
                         )}
                         {user && (
                             <>
-                                <NavLink to={'/Perfil'}>
+                                <NavLink to={'/Perfil'} className='text-decoration-none'>
                                     <div className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedCol} d-flex flex-column justify-content-center align-items-center p-1` : 'd-flex flex-column justify-content-center align-items-center p-0'}>
                                         <PersonCircle className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedIcon} mb-1` : `${styles.iconsNavbarMobile} mb-1`} />
                                         <p className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedP} m-0` : `${styles.pNavbarMobile} m-0`}>Perfil</p>

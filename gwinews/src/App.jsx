@@ -18,6 +18,8 @@ import NewsPage from './pages/NewsPage/NewsPage';
 import SobreNos from './pages/SobreNos/SobreNos';
 import Perfil from './pages/Perfil/Perfil';
 
+import Cotacoes from './components/Cotacoes/Cotacoes';
+
 function App() {
   const [user, setUser] = useState(undefined)
   const { auth } = userAuthentication()
@@ -81,6 +83,8 @@ function App() {
             <Route path='/SobreNos/' element={<SobreNos></SobreNos>}></Route>
             <Route path='/Perfil/' element={<Perfil></Perfil>}></Route>
             <Route path='*' element={<Navigate to='/' />}></Route>
+
+            <Route path='/Economia/Moedas' element={<Cotacoes></Cotacoes>}></Route>
           </Routes>
           <Navbar></Navbar>
         </BrowserRouter>

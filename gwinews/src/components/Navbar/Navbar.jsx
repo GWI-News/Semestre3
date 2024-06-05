@@ -192,7 +192,7 @@ const Navbar = () => {
                             <Form.Control type='password' name='equalPassword'  value={equalPassword} placeholder='Senha de João Novamente' className={styles.formInputMobile} onChange={(e) => { setEqualPassword(e.target.value) }} />
                         </Form.Group>
                         <div className='d-flex justify-content-center align-items-center pt-2 pb-2'>
-                            <button className={styles.formButtonMobile}>
+                            <button className={`${styles.formButtonMobile} btn btn-primary`}>
                                 Cadastrar
                             </button>
                         </div>

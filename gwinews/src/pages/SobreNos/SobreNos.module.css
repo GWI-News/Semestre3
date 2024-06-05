@@ -1,5 +1,5 @@
 .container {
-    padding: 35px 20px 85px;
+    padding: 2.1875rem 1.25rem 5.3125rem;
     text-align: center;
 }
 
@@ -7,33 +7,36 @@
     max-width: 65%;
     height: auto;
     display: block;
-    margin: 20px auto;
+    margin: 1.25rem auto;
 }
 
 .image2 {
     max-width: 30%;
     height: auto;
     display: block;
-    margin: 20px auto;
+    margin: 1.25rem auto;
     border-radius: 50%;
 }
 
 .linha {
-    border-top: 1px solid #ccc;
-    margin: 20px auto;
+    border-bottom: 0.25rem dotted #141414;
+    margin: 2rem auto; 
     width: 100%;
 }
 
 h1 {
-    margin-top: 56px;
+    margin-top: 3.5rem;
+    font-size: 2rem; 
 }
 
 h2 {
-    margin-top: 20px;
+    margin-top: 2rem; 
+    font-size: 1.75rem; 
 }
 
 p {
-    margin-bottom: 20px;
+    margin-bottom: 2rem; 
+    font-size: 1.25rem; 
 }
 
 ul {
@@ -42,5 +45,5 @@ ul {
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }

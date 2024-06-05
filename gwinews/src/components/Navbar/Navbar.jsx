@@ -19,11 +19,35 @@ const Navbar = () => {
     const location = useLocation()
 
     const { user } = useAuthValue()
-    const { login, forgotPassword, error: authError, loading } = userAuthentication()
+    const { login, forgotPassword, createUser, error: authError, loading } = userAuthentication()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [newEmail, setNewEmail] = useState('')
+    const [newName, setNewName] = useState('')
+    const [newPassword, setNewPassword] = useState('')
+    const [equalPassword, setEqualPassword] = useState('')
+
+    const handlerSubmitCreate = async (e) =>{
+        e.preventDefault()
+        setError('')
+        if (newPassword !== equalPassword) {
+            setError('Senhas não conferem.')
+            return
+        }
+        else if (newPassword.length < 6) {
+            setError('A senha deve ter pelo menos 6 caracteres.')
+            return
+        }
+        const user = { newName, newEmail, newPassword }
+        const res = await createUser(user)
+        navigate('/Perfil')
+        setNewName('')
+        setNewEmail('')
+        setNewPassword('')
+        setEqualPassword('')
+    }
 
     const handlerSubmitLogin = async (e) => {
         e.preventDefault()
@@ -150,27 +174,27 @@ const Navbar = () => {
                     <h1 className={`${styles.offcanvasTitle} m-0 pt-1 pb-2`}>Cadastro</h1>
                 </Offcanvas.Header>
                 <Offcanvas.Body className='ps-2 pe-2 pt-0 pb-1'>
-                    <Form className='d-flex flex-column justify-content-center'>
+                    <Form onSubmit={ handlerSubmitCreate } className='d-flex flex-column justify-content-center'>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Nome:</Form.Label>
-                            <Form.Control type='email' placeholder='João Imaginário' className={styles.formInputMobile} />
+                            <Form.Control type='text' name='newName' value={newName} placeholder='João Imaginário' className={styles.formInputMobile} onChange={(e) => { setNewName(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Email:</Form.Label>
-                            <Form.Control type='password' placeholder='joao@email.com' className={styles.formInputMobile} />
+                            <Form.Control type='email' name='newEmail'  value={newEmail} placeholder='joao@email.com' className={styles.formInputMobile} onChange={(e) => { setNewEmail(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Senha:</Form.Label>
-                            <Form.Control type='password' placeholder='Senha de João' className={styles.formInputMobile} />
+                            <Form.Control type='password' name='newPassword'  value={newPassword} placeholder='Senha de João' className={styles.formInputMobile} onChange={(e) => { setNewPassword(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Confirmar Senha:</Form.Label>
-                            <Form.Control type='password' placeholder='Senha de João Novamente' className={styles.formInputMobile} />
+                            <Form.Control type='password' name='equalPassword'  value={equalPassword} placeholder='Senha de João Novamente' className={styles.formInputMobile} onChange={(e) => { setEqualPassword(e.target.value) }} />
                         </Form.Group>
                         <div className='d-flex justify-content-center align-items-center pt-2 pb-2'>
-                            <Button type='submit' className={styles.formButtonMobile}>
+                            <button className={styles.formButtonMobile}>
                                 Cadastrar
-                            </Button>
+                            </button>
                         </div>
                     </Form>
                 </Offcanvas.Body>

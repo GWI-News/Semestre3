@@ -1,5 +1,6 @@
 .container {
-    padding: 35px 20px 85px;
+    margin: 12vh 0;
+    padding: 0.5rem;
     text-align: center;
 }
 
@@ -7,40 +8,41 @@
     max-width: 65%;
     height: auto;
     display: block;
-    margin: 20px auto;
+    margin: 1.25rem auto;
 }
 
 .image2 {
     max-width: 30%;
     height: auto;
     display: block;
-    margin: 20px auto;
+    margin: 1.25rem auto;
     border-radius: 50%;
 }
 
 .linha {
-    border-top: 1px solid #ccc;
-    margin: 20px auto;
-    width: 100%;
+    border-bottom: 0.25rem dotted #1D4988;
+    margin-bottom: 2rem;
 }
 
-h1 {
-    margin-top: 56px;
+.sobreNosH1 {
+    font-size: 2rem; 
 }
 
-h2 {
-    margin-top: 20px;
+.sobreNosH2 {
+    margin-top: 2rem; 
+    font-size: 1.75rem; 
 }
 
-p {
-    margin-bottom: 20px;
+.sobreNosP {
+    margin-bottom: 2rem; 
+    font-size: 1.25rem; 
 }
 
-ul {
+.sobreNosUl {
     list-style-type: none;
     padding: 0;
 }
 
-li {
-    margin-bottom: 10px;
+.sobreNosUl {
+    margin-bottom: 0.625rem;
 }

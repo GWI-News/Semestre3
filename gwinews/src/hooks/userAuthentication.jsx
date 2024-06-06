@@ -1,6 +1,7 @@
 import { db } from '../firebase/config'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateProfile } from 'firebase/auth'
 import { useState, useEffect } from 'react'
+import { collection, getDocs, addDoc, setDoc, doc } from 'firebase/firestore'
 
 export const userAuthentication = () => {
     const [error, setError] = useState(null)
@@ -8,6 +9,14 @@ export const userAuthentication = () => {
     const [cancelled, setCancelled] = useState(false)
 
     const auth = getAuth()
+
+    const userCollectionRef = collection(db, 'users')
+
+    const createUser = async (user) => {
+        const userCredentials = await createUserWithEmailAndPassword(auth, user.newEmail, user.newPassword)
+        const userId = userCredentials.user.uid
+        await setDoc(doc(db, 'Usarios', userId), { name: user.newName, access: 1 })
+    }
 
     function checkIfIsCancelled() {
         if (cancelled) {
@@ -78,5 +87,5 @@ export const userAuthentication = () => {
         return () => setCancelled(true)
     }, [])
 
-    return { auth, login, logout, forgotPassword, loading, error }
+    return { auth, login, logout, createUser, forgotPassword, loading, error }
 }

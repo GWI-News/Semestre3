@@ -1,5 +1,6 @@
 .container {
-    padding: 2.1875rem 1.25rem 5.3125rem;
+    margin: 12vh 0;
+    padding: 0.5rem;
     text-align: center;
 }
 
@@ -19,31 +20,29 @@
 }
 
 .linha {
-    border-bottom: 0.25rem dotted #141414;
-    margin: 2rem auto; 
-    width: 100%;
+    border-bottom: 0.25rem dotted #1D4988;
+    margin-bottom: 2rem;
 }
 
-h1 {
-    margin-top: 3.5rem;
+.sobreNosH1 {
     font-size: 2rem; 
 }
 
-h2 {
+.sobreNosH2 {
     margin-top: 2rem; 
     font-size: 1.75rem; 
 }
 
-p {
+.sobreNosP {
     margin-bottom: 2rem; 
     font-size: 1.25rem; 
 }
 
-ul {
+.sobreNosUl {
     list-style-type: none;
     padding: 0;
 }
 
-li {
+.sobreNosUl {
     margin-bottom: 0.625rem;
 }

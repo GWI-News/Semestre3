@@ -12,7 +12,7 @@ const Crud = () => {
     const navigate = useNavigate()
 
     const [users, setUsers] = useState([])
-    const usersCollectionRef = collection(db, 'users')
+    const usersCollectionRef = collection(db, 'Usuarios')
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -43,7 +43,7 @@ const Crud = () => {
     const createUserLeitor = async (name, age, access, email, password) => {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password)
         const userId = userCredential.user.uid
-        await setDoc(doc(db, 'users', userId), { name: name, age: Number(age), access: Number(access) })
+        await setDoc(doc(db, 'Usuarios', userId), { name: name, age: Number(age), access: Number(access) })
         setName('')
         setAge('')
         setAccess('')
@@ -53,14 +53,14 @@ const Crud = () => {
 
     // Update User
     const updateUser = async (id, age) => {
-        const userDoc = doc(db, 'users', id)
+        const userDoc = doc(db, 'Usuarios', id)
         const newField = { age: age + 1 }
         await updateDoc(userDoc, newField)
     }
 
     // Delete User
     const deleteUser = async (id) => {
-        const userDoc = doc(db, 'users', id)
+        const userDoc = doc(db, 'Usuarios', id)
         await deleteDoc(userDoc)
     }
 
@@ -81,7 +81,7 @@ const Crud = () => {
         try {
             const userAuth = await signInWithEmailAndPassword(auth, email, password)
             const userId = userAuth.user.uid
-            const userDoc = doc(db, 'users', userId)
+            const userDoc = doc(db, 'Usuarios', userId)
             const userDocData = await getDoc(userDoc)
 
             switch (userDocData.data().access) {
@@ -93,7 +93,7 @@ const Crud = () => {
                     break;
             }
         } catch (error) {
-            navigate('/')
+            alert('Usuário não cadastrado')
         }
     }
 

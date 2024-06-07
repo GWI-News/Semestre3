@@ -16,12 +16,11 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import NewsPage from './pages/NewsPage/NewsPage';
 import SobreNos from './pages/SobreNos/SobreNos';
-import Perfil from './pages/Perfil/Perfil';
+import PerfilAdm from './pages/PerfilAdm/PerfilAdm';
+import PerfilLeitor from './pages/PerfilLeitor/PerfilLeitor';
 
 import Cotacoes from './components/Cotacoes/Cotacoes';
 import Crud from './pages/Crud/Crud';
-import PerfilAdm from './pages/PerfilAdm/PerfilAdm';
-import PerfilLeitor from './pages/PerfilLeitor/PerfilLeitor';
 
 function App() {
   const [user, setUser] = useState(undefined)
@@ -84,13 +83,13 @@ function App() {
             <Route path='/Entretenimento/' element={<NewsPage noticias={noticias.filter(noticia => noticia.categoria === 'entretenimento')}></NewsPage>}></Route>
             <Route path='/Economia/' element={<NewsPage noticias={noticias.filter(noticia => noticia.categoria === 'economia')}></NewsPage>}></Route>
             <Route path='/SobreNos/' element={<SobreNos></SobreNos>}></Route>
-            <Route path='/Perfil/' element={<Perfil></Perfil>}></Route>
+            <Route path='/Perfil/Adm' element={<PerfilAdm></PerfilAdm>}></Route>
+            <Route path='/Perfil/Leitor' element={<PerfilLeitor></PerfilLeitor>}></Route>
             <Route path='*' element={<Navigate to='/' />}></Route>
 
             <Route path='/Economia/Moedas' element={<Cotacoes></Cotacoes>}></Route>
             <Route path='/Crud' element={<Crud></Crud>}></Route>
-            <Route path='/Perfil/Adm' element={<PerfilAdm></PerfilAdm>}></Route>
-            <Route path='/Perfil/Leitor' element={<PerfilLeitor></PerfilLeitor>}></Route>
+
           </Routes>
           <Navbar></Navbar>
         </BrowserRouter>

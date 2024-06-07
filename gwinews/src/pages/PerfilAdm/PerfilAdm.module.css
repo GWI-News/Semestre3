@@ -1,0 +1,80 @@
+.perfilAdmContainer {
+    min-height: 76vh;
+    margin: 12vh 0;
+    padding: 0.5rem 0.5rem 0;
+    background-color: #EBEBEB;
+}
+
+.perfilAdmInfoContainer {
+    min-height: calc(76vh - 0.5rem);
+    padding: 0.5rem;
+    background-color: #F9F9F9;
+}
+
+.perfilAdmSectionFirst {
+    padding-bottom: 0.75rem;
+    border-bottom: 0.25rem solid rgb(235, 235, 235, 0.5);
+}
+
+.perfilAdmSection {
+    padding: 0.75rem 0;
+    border-bottom: 0.25rem solid rgb(235, 235, 235, 0.5);
+}
+
+.perfilAdmSectionLast {
+    padding-top: 0.75rem;
+}
+
+.perfilAdmSectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1D4988;
+    margin: 0;
+}
+
+.perfilAdmContainerUserImage {
+    width: 100%;
+    height: 100%;
+    padding: 1.75rem;
+    border-radius: 50%;
+    background-color: #EBEBEB;
+}
+
+.perfilAdmUserImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.perfilAdmUserName {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1D4988;
+    margin: 0;
+}
+
+.perfilAdmSectionCrudIcons {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.perfilAdmSectionCrudButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F9F9F9;
+    border-radius: 5px;
+    background-color: #1D4988;
+    padding: 0.25rem 0.5rem 0.4rem;
+    border: none;
+}
+
+.perfilAdmSectionCrudButtonText {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin: 0;
+}

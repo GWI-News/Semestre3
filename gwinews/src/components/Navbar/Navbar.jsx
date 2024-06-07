@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { HouseFill, CollectionFill, InfoCircleFill, PersonCircle, X } from 'react-bootstrap-icons'
+import { HouseFill, CollectionFill, InfoCircleFill, PersonCircle } from 'react-bootstrap-icons'
 
 const Navbar = () => {
     const navigate = useNavigate()
@@ -28,8 +28,20 @@ const Navbar = () => {
     const [newName, setNewName] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [equalPassword, setEqualPassword] = useState('')
+    const [userRoute, setUserRoute] = useState('')
 
-    const handlerSubmitCreate = async (e) =>{
+    const handlerSubmitLogin = async (e) => {
+        e.preventDefault()
+        setError('')
+        const userLogin = { email, password }
+        const route = await login(userLogin)
+        navigate(route)
+        setUserRoute(route)
+        setEmail('')
+        setPassword('')
+    }
+
+    const handlerSubmitCreate = async (e) => {
         e.preventDefault()
         setError('')
         if (newPassword !== equalPassword) {
@@ -40,24 +52,15 @@ const Navbar = () => {
             setError('A senha deve ter pelo menos 6 caracteres.')
             return
         }
-        const user = { newName, newEmail, newPassword }
-        const res = await createUser(user)
-        navigate('/Perfil')
+        const newUser = { newName, newEmail, newPassword }
+        const res = await createUser(newUser)
+        console.table(res)
+        handleCloseSignUp()
+        handleShowLogin()
         setNewName('')
         setNewEmail('')
         setNewPassword('')
         setEqualPassword('')
-    }
-
-    const handlerSubmitLogin = async (e) => {
-        e.preventDefault()
-        setError('')
-        const user = { email, password }
-        const res = await login(user)
-        console.table(res)
-        navigate('/Perfil')
-        setEmail('')
-        setPassword('')
     }
 
     const handlerSubmitForgotPassword = async (e) => {
@@ -174,22 +177,22 @@ const Navbar = () => {
                     <h1 className={`${styles.offcanvasTitle} m-0 pt-1 pb-2`}>Cadastro</h1>
                 </Offcanvas.Header>
                 <Offcanvas.Body className='ps-2 pe-2 pt-0 pb-1'>
-                    <Form onSubmit={ handlerSubmitCreate } className='d-flex flex-column justify-content-center'>
+                    <Form onSubmit={handlerSubmitCreate} className='d-flex flex-column justify-content-center'>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Nome:</Form.Label>
                             <Form.Control type='text' name='newName' value={newName} placeholder='João Imaginário' className={styles.formInputMobile} onChange={(e) => { setNewName(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Email:</Form.Label>
-                            <Form.Control type='email' name='newEmail'  value={newEmail} placeholder='joao@email.com' className={styles.formInputMobile} onChange={(e) => { setNewEmail(e.target.value) }} />
+                            <Form.Control type='email' name='newEmail' value={newEmail} placeholder='joao@email.com' className={styles.formInputMobile} onChange={(e) => { setNewEmail(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Senha:</Form.Label>
-                            <Form.Control type='password' name='newPassword'  value={newPassword} placeholder='Senha de João' className={styles.formInputMobile} onChange={(e) => { setNewPassword(e.target.value) }} />
+                            <Form.Control type='password' name='newPassword' value={newPassword} placeholder='Senha de João' className={styles.formInputMobile} onChange={(e) => { setNewPassword(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Confirmar Senha:</Form.Label>
-                            <Form.Control type='password' name='equalPassword'  value={equalPassword} placeholder='Senha de João Novamente' className={styles.formInputMobile} onChange={(e) => { setEqualPassword(e.target.value) }} />
+                            <Form.Control type='password' name='equalPassword' value={equalPassword} placeholder='Senha de João Novamente' className={styles.formInputMobile} onChange={(e) => { setEqualPassword(e.target.value) }} />
                         </Form.Group>
                         <div className='d-flex justify-content-center align-items-center pt-2 pb-2'>
                             <button className={`${styles.formButtonMobile} btn btn-primary`}>
@@ -240,18 +243,18 @@ const Navbar = () => {
                     <Col onClick={user ? null : handleShowLogin} xs={3} className='d-flex flex-column justify-content-center align-items-center p-0'>
                         {!user && (
                             <>
-                                <div className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedCol} d-flex flex-column justify-content-center align-items-center p-1` : 'd-flex flex-column justify-content-center align-items-center p-0'}>
-                                    <PersonCircle className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedIcon} mb-1` : `${styles.iconsNavbarMobile} mb-1`} />
-                                    <p className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedP} m-0` : `${styles.pNavbarMobile} m-0`}>Perfil</p>
+                                <div className={'d-flex flex-column justify-content-center align-items-center p-0'}>
+                                    <PersonCircle className={`${styles.iconsNavbarMobile} mb-1`} />
+                                    <p className={`${styles.pNavbarMobile} m-0`}>Perfil</p>
                                 </div>
                             </>
                         )}
                         {user && (
                             <>
-                                <NavLink to={'/Perfil'} className='text-decoration-none'>
-                                    <div className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedCol} d-flex flex-column justify-content-center align-items-center p-1` : 'd-flex flex-column justify-content-center align-items-center p-0'}>
-                                        <PersonCircle className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedIcon} mb-1` : `${styles.iconsNavbarMobile} mb-1`} />
-                                        <p className={location.pathname === '/Perfil' ? `${styles.navbarIconSelectedP} m-0` : `${styles.pNavbarMobile} m-0`}>Perfil</p>
+                                <NavLink to={userRoute} className='text-decoration-none'>
+                                    <div className={location.pathname.includes('/Perfil') ? `${styles.navbarIconSelectedCol} d-flex flex-column justify-content-center align-items-center p-1` : 'd-flex flex-column justify-content-center align-items-center p-0'}>
+                                        <PersonCircle className={location.pathname.includes('/Perfil') ? `${styles.navbarIconSelectedIcon} mb-1` : `${styles.iconsNavbarMobile} mb-1`} />
+                                        <p className={location.pathname.includes('/Perfil') ? `${styles.navbarIconSelectedP} m-0` : `${styles.pNavbarMobile} m-0`}>Perfil</p>
                                     </div>
                                 </NavLink>
                             </>

@@ -1,7 +1,8 @@
 # Semestre3
 Repositório para desenvolvimento do software GWI News, para o cumprimento do Projeto Transdisciplinar do curso Desenvolvimento de Software Multiplataforma, na faculdade Fatec Matão - Luiz Marchesan.
 
-# Tarefas de Melhorias como Avaliação [11/06/2024] (As Sugestões de Códigos São Geradas para guiar exemplos não são implementações prontas. As utilize como guias de introdução)
+# Tarefas de Melhorias como Avaliação [11/06/2024] 
+(As Sugestões de Códigos São Geradas para guiar exemplos não são implementações prontas. As utilize como guias de introdução)
 
 ### Tarefas de 3 Pontos (Alterações de Componentes Visuais)
 

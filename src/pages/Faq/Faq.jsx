@@ -15,7 +15,7 @@ const Faq = () => {
     const { error: authError, loading } = userAuthentication()
 
     return (
-        <Container className={styles.faqContainer}>
+        <Container fluid className={styles.faqContainer}>
             <Row className={`m-0 p-0`}>
                 <Col className={`m-0 p-0`}>
                     <div className={styles.faqSectionDivisor}>

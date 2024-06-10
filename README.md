@@ -501,8 +501,8 @@ const App = () => {
 // }
 ```
 
-#### 22. Adição de Página de Sobre (3 pontos)
-**Descrição:** Criar uma página "Sobre" para fornecer informações sobre a aplicação e a equipe de desenvolvimento.
+#### 22. Adição de Página de Sobre (34 pontos)
+**Descrição:** Criar uma página "Sobre" para fornecer informações sobre a aplicação e a equipe de desenvolvimento com usa API de Worpress.
 
 **Exemplo de Código:**
 ```jsx
@@ -800,7 +800,7 @@ const Article = ({ article, user }) => {
 ```
 
 #### 32. Implementação de Comentários em Artigos (13 pontos)
-**Descrição:** Adicionar sistema de comentários em artigos para permitir a interação dos usuários com o conteúdo e entre si.
+**Descrição:** Incrmentar Botão compartilhar em redes sociais opt-in.
 
 **Exemplo de Código:**
 ```jsx

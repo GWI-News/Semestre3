@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc, onSnapshot, setDoc, getDoc } from 'firebase/firestore'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { userAuthentication } from '../../hooks/userAuthentication'
 import { db } from '../../firebase/config'
 import { useNavigate } from 'react-router-dom'
 import styles from './Crud.module.css'
@@ -10,6 +11,8 @@ const Crud = () => {
     // CRUD Video
     const auth = getAuth()
     const navigate = useNavigate()
+
+    const { logout } = userAuthentication()
 
     const [users, setUsers] = useState([])
     const usersCollectionRef = collection(db, 'Usuarios')
@@ -113,6 +116,9 @@ const Crud = () => {
                     <input type='email' value={emailLogin} onChange={(e) => { setEmailLogin(e.target.value) }} placeholder='Email'></input>
                     <input type='password' value={passwordLogin} onChange={(e) => { setPasswordLogin(e.target.value) }} placeholder='Password'></input>
                     <button onClick={() => { handleLogin(emailLogin, passwordLogin) }}>Login</button>
+                </div>
+                <div>
+                    <button onClick={logout}>Logout</button>
                 </div>
                 {users && users.map((user, i) => {
                     return (

@@ -19,7 +19,7 @@ export const userAuthentication = () => {
         try {
             const userCredentials = await createUserWithEmailAndPassword(auth, user.newEmail, user.newPassword)
             const userId = userCredentials.user.uid
-            await setDoc(doc(db, 'Usuarios', userId), { name: user.newName, access: 1 })
+            await setDoc(doc(db, 'Usuarios', userId), { name: user.newName, access: 0 })
             sendEmailVerification(auth.currentUser).then(() => {
                 alert('Verifique seu E-mail para Confirmar o Cadastro.')
             })

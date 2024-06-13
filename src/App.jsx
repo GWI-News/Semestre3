@@ -18,7 +18,6 @@ import NewsPage from './pages/NewsPage/NewsPage';
 import SobreNos from './pages/SobreNos/SobreNos';
 import PerfilAdm from './pages/PerfilAdm/PerfilAdm';
 import PerfilLeitor from './pages/PerfilLeitor/PerfilLeitor';
-import Faq from './pages/Faq/Faq';
 
 import Cotacoes from './components/Cotacoes/Cotacoes';
 import Crud from './pages/Crud/Crud';
@@ -86,7 +85,6 @@ function App() {
             <Route path='/SobreNos/' element={<SobreNos></SobreNos>}></Route>
             <Route path='/Perfil/Adm' element={<PerfilAdm></PerfilAdm>}></Route>
             <Route path='/Perfil/Leitor' element={<PerfilLeitor></PerfilLeitor>}></Route>
-            <Route path='/Faq' element={<Faq></Faq>}></Route>
             <Route path='*' element={<Navigate to='/' />}></Route>
 
             <Route path='/Economia/Moedas' element={<Cotacoes></Cotacoes>}></Route>

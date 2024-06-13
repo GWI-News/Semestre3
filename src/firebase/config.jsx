@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth"
 import credentials from "../../credentials.json"
 
 const firebaseConfig = {
-    apiKey: credentials.firebase_api_key,
+    apiKey: "AIzaSyBlo_upI2kwLPk3GBKez86KnpZ2kPhxmyY",
     authDomain: "gwinews-e715f.firebaseapp.com",
     projectId: "gwinews-e715f",
     storageBucket: "gwinews-e715f.appspot.com",

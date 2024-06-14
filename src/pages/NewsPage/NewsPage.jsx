@@ -8,6 +8,10 @@ const NewsPage = ({ noticias }) => {
   return (
     <>
       <Container fluid className={styles.newsPage}>
+        <h1 className={styles.tituloPages}>
+          Últimas Notícias
+        </h1>
+
         <Carousel indicators={false}>
           <Carousel.Item>
             <img

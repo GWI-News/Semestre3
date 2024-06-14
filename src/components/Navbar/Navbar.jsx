@@ -143,6 +143,9 @@ const Navbar = () => {
                         <Row className={`${styles.linkConatiner} w-100`}>
                             <NavLink to={'/Economia'} className={location.pathname === '/Economia' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEconomia}` : `${styles.linkCategorias} ${styles.linkCategoriaEconomia}`}><h1>Economia</h1></NavLink>
                         </Row>
+                        <Row className={`${styles.linkConatiner} w-100`}>
+                            <NavLink to={'/'} className={location.pathname === '/' ? `${styles.linkCategorias} ${styles.linkCategoriaAtivo} ${styles.linkCategoriaAtivoEmpregos}` : `${styles.linkCategorias} ${styles.linkCategoriaEmpregos}`}><h1>Todas as Notícias</h1></NavLink>
+                        </Row>
                     </Col>
                 </Offcanvas.Body>
             </Offcanvas>

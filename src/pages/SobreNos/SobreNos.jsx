@@ -7,24 +7,21 @@ const SobreNos = () => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.linha}>
-          <h1 className={styles.sobreNosH1}>Conheça a Nossa Identidade, Equipe e Serviços!</h1>
-        </div>
         <div div className={styles.linha}>
           <h1 className={styles.sobreNosH1}>Nossos Serviços</h1>
           <div>
             <h2 className={styles.sobreNosH2}>Empregos</h2>
-            <p className={styles.sobreNosP}>Descubra oportunidades profissionais com nosso serviço de divulgação de notícias de empregos.
-              Mantenha-se atualizado com as últimas vagas de trabalho, oportunidades de carreira e tendências do mercado de trabalho com uma ampla gama de setores cobertos, desde tecnologia a finanças, saúde a marketing, oferecemos informações relevantes para profissionais em busca de novas oportunidades.
-              Nossa equipe de especialistas compartilha as melhores vagas disponíveis, além de fornecer dicas úteis sobre currículos, entrevistas e desenvolvimento profissional.
-              Esteja um passo à frente na busca por emprego com nosso serviço de divulgação de notícias de emprego e transforme sua carreira de forma positiva.</p>
+            <p className={styles.sobreNosP}>
+              Mantenha-se atualizado com as últimas vagas de trabalho, oportunidades de carreira e <strong>tendências de mercado</strong> relevantes para profissionais em busca de novas oportunidades.
+              Nossa equipe de especialistas compartilha as <strong>melhores vagas</strong> disponíveis, além de fornecer dicas úteis sobre currículos, entrevistas e <strong>desenvolvimento profissional</strong>.
+            </p>
             <img src="art_empregos.svg" alt="Nossa equipe" className={styles.image} />
           </div>
           <div>
             <h2 className={styles.sobreNosH2}>Educação</h2>
-            <p className={styles.sobreNosP}>Esteja atualizado sobre as últimas tendências e novidades na área da educação, desde avanços na tecnologia educacional até políticas e programas educacionais inovadores.
-              Nossa equipe de especialistas em educação traz informações abrangentes sobre instituições de ensino, cursos, bolsas de estudo e eventos educacionais.
-              Quer você seja um estudante em busca de orientação sobre escolhas acadêmicas, um profissional buscando aprimorar suas habilidades ou um educador em busca de recursos e estratégias, nosso serviço oferece insights valiosos e inspiração para impulsionar sua jornada educacional</p>
+            <p className={styles.sobreNosP}>
+              Esteja atualizado sobre as tendências e novidades na área da educação, desde avanços na <strong>tecnologia educacional</strong> até e programas educacionais inovadores.
+            </p>
             <img src="art_educacao.svg" alt="Nossa equipe" className={styles.image} />
           </div>
           <div>

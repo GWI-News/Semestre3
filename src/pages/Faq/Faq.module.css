@@ -1,0 +1,68 @@
+.faqContainer {
+    min-height: 76vh;
+    text-align: center;
+    margin: 12vh 0;
+    padding: 0.5rem;
+    background-color: #F9F9F9;
+}
+
+.faqSectionDivisor {
+    border-bottom: 0.25rem dotted #1D4988;
+    margin-bottom: 1.25rem;
+}
+
+.faqContainer h1 {
+    font-size: 2.5rem;
+    color: #1D4988;
+    margin-bottom: 0.5rem;
+}
+
+.faqContainer h2 {
+    font-size: 1.75rem;
+    color: #1D4988;
+    margin-bottom: 0.5rem;
+}
+
+.faqContainer p {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.formLabelMobile {
+    font-size: 1.5rem;
+    color: #1D4988;
+    font-weight: 600;
+    margin: 0;
+}
+
+.formInputMobile {
+    background-color: #F9F9F9;
+    padding: 0.5rem;
+}
+
+.formInputMobile::placeholder {
+    color: rgb(20, 20, 20, 0.5);
+}
+
+.formInputMobile:focus {
+    box-shadow: 0 0 10px #1D4988;
+}
+
+.formButtonMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46%;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    color: #F9F9F9;
+    background-color: #1D4988;
+    padding: 0.3rem 0.5rem 0.45rem;
+}
+
+.formButtonMobile:focus {
+    background-color: #1D4988;
+    box-shadow: 0 0 10px #1D4988;
+}

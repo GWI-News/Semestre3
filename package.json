@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:dev": "cross-env NODE_ENV=development REACT_APP_ENV=gwinews-development vite build --mode development",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start": "npm run dev"
+    "preview": "vite preview"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "firebase": "^10.12.0",
     "firebase-tools": "^13.9.0",
     "react": "^18.2.0",
@@ -19,12 +20,14 @@
     "react-bootstrap-icons": "^1.11.4",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
+    "react-scripts": "^5.0.1",
     "react-tippy": "^1.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",

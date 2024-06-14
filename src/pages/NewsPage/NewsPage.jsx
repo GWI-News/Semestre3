@@ -9,6 +9,7 @@ const NewsPage = ({ noticias }) => {
   return (
     <>
       <Container fluid className={styles.newsPage}>
+        <PesquisaTempoReal></PesquisaTempoReal>
         <Carousel indicators={false}>
           <Carousel.Item>
             <img
@@ -42,7 +43,6 @@ const NewsPage = ({ noticias }) => {
           </Carousel.Item>
         </Carousel>
 
-                <PesquisaTempoReal></PesquisaTempoReal>
         {noticias && noticias.map((noticia, i) => {
           return (
             <Card key={i} noticia={noticia}></Card>

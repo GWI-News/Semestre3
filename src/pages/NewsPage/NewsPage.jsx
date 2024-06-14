@@ -3,11 +3,13 @@ import styles from './NewsPage.module.css'
 import Card from '../../components/Card/Card'
 import Container from 'react-bootstrap/Container'
 import { Carousel } from 'react-bootstrap';
+import PesquisaTempoReal from '../../components/Pesquisa/Pesquisa'
 
 const NewsPage = ({ noticias }) => {
   return (
     <>
       <Container fluid className={styles.newsPage}>
+        <PesquisaTempoReal></PesquisaTempoReal>
         <Carousel indicators={false}>
           <Carousel.Item>
             <img

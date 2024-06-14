@@ -1,0 +1,51 @@
+.pesquisa{
+    position: fixed;
+    bottom: 85px;
+    right: 11px;
+    z-index: 100;
+    display: flex;
+}
+
+.linha{
+    border-bottom: 0.25rem dotted #1D4988;
+}
+
+.formInputMobile {
+    background-color: #EBEBEB;
+    padding: 0.5rem;
+}
+
+.formInputMobile::placeholder {
+    color: rgb(20, 20, 20, 0.5);
+}
+
+.formInputMobile:focus {
+    box-shadow: 0 0 10px #1D4988;
+}
+
+.botaoContainer {
+    background-color: #EBEBEB;
+    padding: 10px 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    border-color: #1D4988; /* Sem borda */
+    text-align: center; /* Texto centralizado */
+    display: inline-block; /* Para permitir padding */
+}
+
+.searchButton {
+    background-color: #EBEBEB;
+    color: #1D4988;
+    padding: 10px;
+    border: 1px solid black; /* Sem borda */
+    border-radius: 30px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    display: flex; /* Para centralizar o ícone */
+    align-items: center; /* Alinha o ícone verticalmente */
+    justify-content: center; /* Alinha o ícone horizontalmente */
+}
+
+.searchIcon {
+    width: 50px; /* Aumentar a largura para ícones baseados em imagem/SVG */
+    height: 50px; /* Aumentar a altura para ícones baseados em imagem/SVG */
+    font-size: 50px; /* Aumentar para ícones baseados em fonte */
+}

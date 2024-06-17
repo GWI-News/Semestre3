@@ -23,6 +23,7 @@ import Faq from './pages/Faq/Faq';
 
 import Cotacoes from './components/Cotacoes/Cotacoes';
 import Crud from './pages/Crud/Crud';
+import PaginaErro from './pages/PaginaErro/PaginaErro';
 
 
 function App() {
@@ -90,7 +91,7 @@ function App() {
             <Route path='/Perfil/Adm' element={<PerfilAdm></PerfilAdm>}></Route>
             <Route path='/Perfil/Leitor' element={<PerfilLeitor></PerfilLeitor>}></Route>
             <Route path='/Faq' element={<Faq></Faq>}></Route>
-            <Route path='*' element={<Navigate to='/' />}></Route>
+            <Route path='*' element={<PaginaErro />}></Route>
 
             <Route path='/Economia/Moedas' element={<Cotacoes></Cotacoes>}></Route>
             <Route path='/Crud' element={<Crud></Crud>}></Route>

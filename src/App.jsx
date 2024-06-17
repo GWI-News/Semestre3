@@ -13,6 +13,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/Header/Header';
+import ProgressBar from './components/ProgressBar/ProgressBar';
 import Navbar from './components/Navbar/Navbar';
 import NewsPage from './pages/NewsPage/NewsPage';
 import SobreNos from './pages/SobreNos/SobreNos';
@@ -22,6 +23,7 @@ import Faq from './pages/Faq/Faq';
 
 import Cotacoes from './components/Cotacoes/Cotacoes';
 import Crud from './pages/Crud/Crud';
+
 
 function App() {
   const [user, setUser] = useState(undefined)
@@ -76,6 +78,7 @@ function App() {
       <AuthProvider value={{ user }}>
         <BrowserRouter>
           <Header logos={logos}></Header>
+          <ProgressBar></ProgressBar>
           <Routes>
             <Route path='/' element={<NewsPage noticias={noticias}></NewsPage>}></Route>
             <Route path='/Empregos/' element={<NewsPage noticias={noticias.filter(noticia => noticia.categoria === 'empregos')}></NewsPage>}></Route>
@@ -91,7 +94,6 @@ function App() {
 
             <Route path='/Economia/Moedas' element={<Cotacoes></Cotacoes>}></Route>
             <Route path='/Crud' element={<Crud></Crud>}></Route>
-
           </Routes>
           <Navbar></Navbar>
         </BrowserRouter>

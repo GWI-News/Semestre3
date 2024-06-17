@@ -1,7 +1,7 @@
 .pesquisa{
     position: fixed;
-    bottom: 85px;
-    right: 11px;
+    bottom: 13vh;
+    right: 0.688rem;
     z-index: 100;
     display: flex;
 }
@@ -25,27 +25,27 @@
 
 .botaoContainer {
     background-color: #EBEBEB;
-    padding: 10px 10px; /* Espaçamento interno */
-    border-radius: 5px; /* Bordas arredondadas */
-    border-color: #1D4988; /* Sem borda */
-    text-align: center; /* Texto centralizado */
-    display: inline-block; /* Para permitir padding */
+    padding: 0.625rem 0.625rem; 
+    border-radius: 0.313rem; 
+    border-color: #1D4988; 
+    text-align: center; 
+    display: inline-block; 
 }
 
 .searchButton {
     background-color: #EBEBEB;
     color: #1D4988;
-    padding: 10px;
-    border: 1px solid black; /* Sem borda */
-    border-radius: 30px; /* Bordas arredondadas */
-    padding: 10px; /* Espaçamento interno */
-    display: flex; /* Para centralizar o ícone */
-    align-items: center; /* Alinha o ícone verticalmente */
-    justify-content: center; /* Alinha o ícone horizontalmente */
+    padding: 0.625rem;
+    border: 1px solid black; 
+    border-radius: 1.875rem; 
+    padding: 0.625rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
 
 .searchIcon {
-    width: 50px; /* Aumentar a largura para ícones baseados em imagem/SVG */
-    height: 50px; /* Aumentar a altura para ícones baseados em imagem/SVG */
-    font-size: 50px; /* Aumentar para ícones baseados em fonte */
+    width: 3.125rem; 
+    height: 3.125rem; 
+    font-size: 3.125rem; 
 }

@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "cross-env NODE_ENV=development REACT_APP_ENV=gwinews-development vite build --mode development",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lighthouse": "lighthouse https://gwinews-e715f.web.app/ --output=json --output-path=./lighthouse-report.json"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",

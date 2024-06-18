@@ -2,6 +2,7 @@ import { db } from '../firebase/config'
 import { useState, useEffect } from 'react'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, sendEmailVerification } from 'firebase/auth'
 import { setDoc, doc, getDoc } from 'firebase/firestore'
+import logUserActivity from './userLog'
 
 export const userAuthentication = () => {
     const auth = getAuth()
@@ -21,7 +22,7 @@ export const userAuthentication = () => {
             const userId = userCredentials.user.uid
             await setDoc(doc(db, 'Usuarios', userId), { name: user.newName, access: 1 })
             sendEmailVerification(auth.currentUser).then(() => {
-                alert('Verifique seu E-mail para Confirmar o Cadastro.')
+                alert('Verifique seu E-mail para confirmar o cadastro.')
             })
             logout()
             setLoading(false)
@@ -64,6 +65,7 @@ export const userAuthentication = () => {
             const userId = userCredentials.user.uid
             const userDoc = doc(db, 'Usuarios', userId)
             const userDocData = await getDoc(userDoc)
+            logUserActivity(userId, 'Login realizado com sucesso.')
 
             switch (userDocData.data().access) {
                 case 0:

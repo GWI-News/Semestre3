@@ -16,6 +16,8 @@ import Button from 'react-bootstrap/Button'
 
 import { CameraFill, FilePerson, FileEarmarkPerson, PeopleFill, FileEarmarkFont, Newspaper, CameraReelsFill } from 'react-bootstrap-icons'
 
+import Chart from '../../components/Dashboard/Dashboard'
+
 const Perfil = () => {
     const { user } = useAuthValue()
     const { logout } = userAuthentication()
@@ -134,14 +136,17 @@ const Perfil = () => {
                             </Col>
                         </Row>
                         <Row className={`m-0 p-0`}>
-                            <Col className={`p-0 text-center`}>
-                                <h5>Acessos por Categoria</h5>
+                            <Col className={`p-0 `}>
+                                <h5 className={'text-center'}>Acessos por Categoria</h5>
                                 <div>
                                     {metrics ? Object.entries(metrics).map(([key, value], index) => (
                                         <div key={key}> {/* Mudança para usar a chave como a key */}
                                             <h5>{key}: {value}</h5>
                                         </div>
                                     )) : <p>Carregando dados...</p>}
+                                </div>
+                                <div>
+                                    <Chart Metrics={metrics} />
                                 </div>
                             </Col>
                         </Row>

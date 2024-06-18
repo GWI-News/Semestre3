@@ -1,5 +1,11 @@
 {
   "projects": {
-    "default": "gwinews-e715f"
-  }
+    "default": "gwinews-e715f",
+    "gwi-prod": "gwinews-e715f",
+    "gwi-dev": "gwinews-development",
+    "gwi-stage": "gwinews-teste"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

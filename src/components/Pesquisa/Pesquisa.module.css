@@ -1,0 +1,51 @@
+.pesquisa{
+    position: fixed;
+    bottom: 13vh;
+    right: 0.688rem;
+    z-index: 100;
+    display: flex;
+}
+
+.linha{
+    border-bottom: 0.25rem dotted #1D4988;
+}
+
+.formInputMobile {
+    background-color: #EBEBEB;
+    padding: 0.5rem;
+}
+
+.formInputMobile::placeholder {
+    color: rgb(20, 20, 20, 0.5);
+}
+
+.formInputMobile:focus {
+    box-shadow: 0 0 10px #1D4988;
+}
+
+.botaoContainer {
+    background-color: #EBEBEB;
+    padding: 0.625rem 0.625rem; 
+    border-radius: 0.313rem; 
+    border-color: #1D4988; 
+    text-align: center; 
+    display: inline-block; 
+}
+
+.searchButton {
+    background-color: #EBEBEB;
+    color: #1D4988;
+    padding: 0.625rem;
+    border: 1px solid black; 
+    border-radius: 1.875rem; 
+    padding: 0.625rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.searchIcon {
+    width: 3.125rem; 
+    height: 3.125rem; 
+    font-size: 3.125rem; 
+}

@@ -1,13 +1,13 @@
 import ApexCharts from 'react-apexcharts';
 
-export default function Chart({ Metrics }) { 
+export default function Chart({ Metrics }) {
 
     const categories = Metrics ? Object.keys(Metrics) : [];
     const seriesData = Metrics ? Object.values(Metrics) : [];
 
     const options = {
         xaxis: {
-            categories: categories, 
+            categories: categories,
         },
         yaxis: {
             tooltip: {
@@ -22,12 +22,12 @@ export default function Chart({ Metrics }) {
     }];
 
     return (
-        <ApexCharts 
+        <ApexCharts
+            height= {320}
+            width={"100%"}
             options={options}
             series={series}
             type="bar"
-            width={350}
-            height={320}
         />
     );
 }

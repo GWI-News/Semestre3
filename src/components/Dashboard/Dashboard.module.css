@@ -1,6 +1,0 @@
-import Chart from '../../components/Dashboard/Dashboard'
-const [metrics, setMetrics] = useState({})
-                <div>
-                    <Chart Metrics={metrics}/>
-                </div>
-                

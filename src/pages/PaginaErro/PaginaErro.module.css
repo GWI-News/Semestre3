@@ -1,0 +1,37 @@
+.container {
+    margin: 12vh 0;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.errorCode {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #1D4988;
+    margin-bottom: 0.5rem;
+}
+
+.message {
+    font-size: 1.75rem;
+    color: #1D4988;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.link {
+    text-decoration: none;
+    color: #1D4988;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.image {
+    max-width: 65%;
+    height: auto;
+    display: block;
+    margin: 1.25rem auto;
+}

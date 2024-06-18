@@ -12,13 +12,17 @@
     "lighthouse": "lighthouse https://gwinews-e715f.web.app/ --output=json --output-path=./lighthouse-report.json"
   },
   "dependencies": {
+    "apexcharts": "^3.49.1",
     "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.3",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.0",
     "firebase-tools": "^13.9.0",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
     "react-bootstrap": "^2.10.2",
     "react-bootstrap-icons": "^1.11.4",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "react-scripts": "^5.0.1",

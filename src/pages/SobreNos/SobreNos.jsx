@@ -1,82 +1,159 @@
 import React from 'react'
 import styles from './SobreNos.module.css'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 
 const SobreNos = () => {
+  const location = useLocation()  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
+
   return (
     <>
       <div className={styles.container}>
-        <div div className={styles.linha}>
-          <h1 className={styles.sobreNosH1}>Nossos Serviços</h1>
-          <div>
-            <h2 className={styles.sobreNosH2}>Empregos</h2>
-            <p className={styles.sobreNosP}>
-              Mantenha-se atualizado com as últimas vagas de trabalho, oportunidades de carreira e <strong>tendências de mercado</strong> relevantes para profissionais em busca de novas oportunidades.
-              Nossa equipe de especialistas compartilha as <strong>melhores vagas</strong> disponíveis, além de fornecer dicas úteis sobre currículos, entrevistas e <strong>desenvolvimento profissional</strong>.
-            </p>
-            <img src="art_empregos.svg" alt="Nossa equipe" className={styles.image} />
-          </div>
-          <div>
-            <h2 className={styles.sobreNosH2}>Educação</h2>
-            <p className={styles.sobreNosP}>
-              Esteja atualizado sobre as tendências e novidades na área da educação, desde avanços na <strong>tecnologia educacional</strong> até e programas educacionais inovadores.
-            </p>
-            <img src="art_educacao.svg" alt="Nossa equipe" className={styles.image} />
-          </div>
-          <div>
-            <h2 className={styles.sobreNosH2}>Esportes</h2>
-            <p className={styles.sobreNosP}>Descubra o mundo emocionante do esporte com o nosso serviço de divulgação de notícias esportivas do Portal de Notícias!
-              Mantenha-se atualizado com as últimas informações, resultados, análises e destaques dos principais eventos esportivos em todo o mundo. De futebol a basquete, tênis a corrida, cobrimos uma ampla variedade de esportes para satisfazer todos os gostos e interesses.
-              Com uma equipe de jornalistas especializados, trazemos a você coberturas abrangentes, entrevistas exclusivas e análises aprofundadas para que você não perca nenhum lance importante.
-              Esteja no centro da ação esportiva com nosso serviço de divulgação de notícias esportivas e desfrute de uma experiência envolvente e informativa que o manterá à frente do jogo.</p>
-            <img src="art_esportes.svg" alt="Nossa equipe" className={styles.image} />
-          </div>
-          <div>
-            <h2 className={styles.sobreNosH2}>Entretenimento</h2>
-            <p className={styles.sobreNosP}>Mantenha-se atualizado de lançamentos de filmes e séries a shows e concertos, trazemos informações exclusivas, entrevistas com artistas, críticas e recomendações para que você nunca perca os acontecimentos mais quentes do mundo do entretenimento.
-              Quer você seja um cinéfilo, um aficionado por música ou um fã de cultura pop, nosso serviço oferece uma dose diária de diversão e inspiração. Esteja sempre à frente das tendências e mergulhe no emocionante universo do entretenimento com nosso serviço de divulgação de notícias de entretenimento.
-              Prepare-se para se divertir e explorar um mundo de possibilidades!</p>
-            <img src="art_entretenimento.svg" alt="Nossa equipe" className={styles.image} />
-          </div>
-          <div>
-            <h2 className={styles.sobreNosH2}>Economia</h2>
-            <p className={styles.sobreNosP}>Nossa equipe de especialistas em economia traz análises aprofundadas, informações sobre empresas, relatórios de mercado e cobertura de eventos que afetam o cenário econômico.
-              Seja você um investidor, empreendedor ou profissional buscando compreender os desafios e oportunidades da economia atual, nosso serviço oferece uma visão abrangente e confiável para ajudá-lo a tomar decisões informadas.
-              Esteja à frente das mudanças econômicas e maximize seu potencial financeiro com nosso serviço de divulgação de notícias de economia.
-              Descubra insights valiosos e navegue pelo mundo dos negócios com confiança e conhecimento.</p>
-            <img src="art_economia.svg" alt="Nossa equipe" className={styles.image} />
+        <div className={`${styles.linha}`}>
+          <div className={`${styles.linha} mb-1 pb-1`}>
+            <h1 className={styles.sobreNosH1}>FAQ</h1>
+            <Link to='/Faq' className={styles.sobreNosH2}>
+              <h2>Clique Aqui para Acessar nosso Faq!</h2>
+            </Link>
           </div>
         </div>
         <div className={styles.linha}>
+          <h1 className={styles.sobreNosH1}>Nossos Serviços</h1>
+          <div className={styles.miniDivisor}>
+            <h2 className={styles.sobreNosH2}>Empregos</h2>
+            <p className={styles.sobreNosP}>
+              Mantenha-se atualizado com as últimas vagas de trabalho, oportunidades de carreira e <strong>tendências de mercado</strong> relevantes para profissionais em busca de novas oportunidades.
+            </p>
+            <img src="art_empregos.svg" alt="Nossa equipe" className={styles.image} />
+          </div>
+          <div className={styles.miniDivisor}>
+            <h2 className={styles.sobreNosH2}>Educação</h2>
+            <p className={styles.sobreNosP}>
+              Esteja atualizado sobre as tendências e novidades na área da educação, desde avanços na tecnologia educacional até e <strong>programas educacionais</strong> inovadores.
+            </p>
+            <img src="art_educacao.svg" alt="Nossa equipe" className={styles.image} />
+          </div>
+          <div className={styles.miniDivisor}>
+            <h2 className={styles.sobreNosH2}>Esportes</h2>
+            <p className={styles.sobreNosP}>
+              Esteja no centro da <strong>ação esportiva</strong> com nosso serviço de divulgação de notícias esportivas e desfrute de uma experiência envolvente e informativa que o manterá à frente do jogo.
+            </p>
+            <img src="art_esportes.svg" alt="Nossa equipe" className={styles.image} />
+          </div>
+          <div className={styles.miniDivisor}>
+            <h2 className={styles.sobreNosH2}>Entretenimento</h2>
+            <p className={styles.sobreNosP}>
+              Mantenha-se atualizado sobre lançamentos de <strong>filmes e séries</strong> e até mesmo <strong>shows e concertos</strong> exibidos na região, trazemos informações exclusivas, entrevistas com artistas, críticas e recomendações para que você.
+            </p>
+            <img src="art_entretenimento.svg" alt="Nossa equipe" className={styles.image} />
+          </div>
+          <div className={`${styles.miniDivisor} m-0`}>
+            <h2 className={styles.sobreNosH2}>Economia</h2>
+            <p className={styles.sobreNosP}>
+              Descubra insights valiosos e navegue pelo <strong>mundo dos negócios</strong> com confiança e conhecimento. Seja você um investidor, empreendedor ou profissional buscando compreender os desafios e oportunidades da economia atual, nosso serviço é a sua fonte confiável de informações.
+            </p>
+            <img src="art_economia.svg" alt="Nossa equipe" className={styles.image} />
+          </div>
+        </div>
+        <div className={`${styles.linha}`}>
           <h1 className={styles.sobreNosH1}>Nossa Equipe</h1>
-          <ul className={styles.sobreNosUl}>
-            <li>
+          <ul className={`${styles.sobreNosUl} m-0`}>
+            <li className={styles.miniDivisor}>
+              <h2 className={styles.sobreNosH2}>Carlos Ramos - Desenvolvedor</h2>
               <img src="carlos.jpg" alt="Carlos Ramos" className={styles.image2} />
-              <p className={styles.sobreNosP}><strong>Carlos Ramos - Desenvolvedor</strong></p>
-              <p className={styles.sobreNosP}>informações do carlos informações do carlos informações do carlos informações do carlos informações do carlos informações do carlos</p>
+              <p className={styles.sobreNosP}>Tenho 19 anos, e atualmente estou cursando faculdade de desenvolvimento de software.</p>
+              <div className='text-center m-0 p-0'>
+                <p className={`${styles.sobreNosP} mb-0`}>
+                  Entre em Contato:
+                </p>
+                <ul className={styles.sobreNosUl}>
+                  <li>
+                    <a href='mailto:botelhoramos01@gmail.com' target='_blank' className={styles.sobreNosP}>E-mail</a>
+                  </li>
+                  <li>
+                    <a href='https://www.linkedin.com/in/carlos-eduardo-ramos-422985265?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' target='_blank' className={styles.sobreNosP}>Linkedin</a>
+                  </li>
+                  <li>
+                    <a href='https://github.com/carloosramos' target='_blank' className={styles.sobreNosP}>GitHub</a>
+                  </li>
+                </ul>
+              </div>
             </li>
-            <li>
+            <li className={styles.miniDivisor}>
+              <h2 className={styles.sobreNosH2}>Gabriel Fecchio - Desenvolvedor</h2>
               <img src="gabriel.jpg" alt="Gabriel Fecchio" className={styles.image2} />
-              <p className={styles.sobreNosP}><strong>Gabriel Fecchio - Desenvolvedor</strong></p>
-              <p className={styles.sobreNosP}>informações do gabriel informações do gabriel informações do gabriel informações do gabriel informações do gabriel informações do gabriel</p>
+              <p className={styles.sobreNosP}>
+                Tenho 19 anos, sou formado como técnico em administração e atualmente estou cursando faculdade de desenvolvimento de software.
+              </p>
+              <div className='text-center m-0 p-0'>
+                <p className={`${styles.sobreNosP} mb-0`}>
+                  Entre em Contato:
+                </p>
+                <ul className={styles.sobreNosUl}>
+                  <li>
+                    <a href='mailto:gabriellarocca0@gmail.com' target='_blank' className={styles.sobreNosP}>E-mail</a>
+                  </li>
+                  <li>
+                    <a href='https://linkedin.com/in/gabriel-f-p-larocca/' target='_blank' className={styles.sobreNosP}>Linkedin</a>
+                  </li>
+                  <li>
+                    <a href='https://github.com/GabrielFePL' target='_blank' className={styles.sobreNosP}>GitHub</a>
+                  </li>
+                </ul>
+              </div>
             </li>
-            <li>
+            <li className={styles.miniDivisor}>
+              <h2 className={styles.sobreNosH2}>Lucas Malachias - Desenvolvedor</h2>
               <img src="lucas.jpg" alt="Lucas Malachias" className={styles.image2} />
-              <p className={styles.sobreNosP}><strong>Lucas Malachias - Desenvolvedor</strong></p>
-              <p className={styles.sobreNosP}>informações do lucas informações do lucas informações do lucas informações do lucas informações do lucas informações do lucas</p>
+              <p className={styles.sobreNosP}>
+                Tenho 22 anos, estou cursando desenvolvimento de software multiplataforma na Fatec Matão.
+              </p>
+              <div className='text-center m-0 p-0'>
+                <p className={`${styles.sobreNosP} mb-0`}>
+                  Entre em Contato:
+                </p>
+                <ul className={styles.sobreNosUl}>
+                  <li>
+                    <a href='mailto:contato.lmvieira@gmail.com' target='_blank' className={styles.sobreNosP}>E-mail</a>
+                  </li>
+                  <li>
+                    <a href='https://www.linkedin.com/in/lucas-malachias-vieira-066856288/' target='_blank' className={styles.sobreNosP}>Linkedin</a>
+                  </li>
+                  <li>
+                    <a href='https://github.com/LMVieira2' target='_blank' className={styles.sobreNosP}>GitHub</a>
+                  </li>
+                </ul>
+              </div>
             </li>
-            <li>
+            <li className={`${styles.miniDivisor} m-0`}>
+              <h2 className={styles.sobreNosH2}>Sophia Tavares - Scrum Master</h2>
               <img src="sophia.jpg" alt="Sophia Tavares" className={styles.image2} />
-              <p className={styles.sobreNosP}><strong>Sophia Tavares - Desenvolvedora e Scrum Master</strong></p>
-              <p className={styles.sobreNosP}>informações da sophia informações da sophia informações da sophia informações da sophia informações da sophia informações da sophia</p>
+              <p className={styles.sobreNosP}>
+                Tenho 19 anos, sou formada como técnico em administração e atualmente estou cursando faculdade de desenvolvimento de software.
+              </p>
+              <div className='text-center m-0 p-0'>
+                <p className={`${styles.sobreNosP} mb-0`}>
+                  Entre em Contato:
+                </p>
+                <ul className={styles.sobreNosUl}>
+                  <li>
+                    <a href='mailto:contato.lmvieira@gmail.com' target='_blank' className={styles.sobreNosP}>E-mail</a>
+                  </li>
+                  <li>
+                    <a href='https://www.linkedin.com/in/lucas-malachias-vieira-066856288/' target='_blank' className={styles.sobreNosP}>Linkedin</a>
+                  </li>
+                  <li>
+                    <a href='https://github.com/LMVieira2' target='_blank' className={styles.sobreNosP}>GitHub</a>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
-        </div>
-        <div>
-          <Link to='/Faq' className={styles.sobreNosH2}>
-            <h2>Clique Aqui para Acessar nosso Faq!</h2>
-          </Link>
         </div>
       </div>
     </>

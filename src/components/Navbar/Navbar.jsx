@@ -19,7 +19,16 @@ const Navbar = () => {
     const location = useLocation()
 
     const { user } = useAuthValue()
-    const { login, forgotPassword, createUser, error: authError, loading } = userAuthentication()
+
+    useEffect(() => {
+        if (user) {
+            console.log(user)
+        } else {
+            logout()
+        }
+    }, [user])
+
+    const { login, logout, forgotPassword, createUser, error: authError, loading } = userAuthentication()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -66,8 +75,8 @@ const Navbar = () => {
     const handlerSubmitForgotPassword = async (e) => {
         e.preventDefault()
         setError('')
-        const user = { email }
-        const res = await forgotPassword(user)
+        const newUser = { email }
+        const res = await forgotPassword(newUser)
         console.table(res)
         handleShowLogin()
         setEmail('')
@@ -183,19 +192,19 @@ const Navbar = () => {
                     <Form onSubmit={handlerSubmitCreate} className='d-flex flex-column justify-content-center'>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Nome:</Form.Label>
-                            <Form.Control type='text' name='newName' value={newName} placeholder='João Imaginário' className={styles.formInputMobile} onChange={(e) => { setNewName(e.target.value) }} />
+                            <Form.Control type='text' required name='newName' value={newName} placeholder='João Imaginário' className={styles.formInputMobile} onChange={(e) => { setNewName(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Email:</Form.Label>
-                            <Form.Control type='email' name='newEmail' value={newEmail} placeholder='joao@email.com' className={styles.formInputMobile} onChange={(e) => { setNewEmail(e.target.value) }} />
+                            <Form.Control type='email' required name='newEmail' value={newEmail} placeholder='joao@email.com' className={styles.formInputMobile} onChange={(e) => { setNewEmail(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Senha:</Form.Label>
-                            <Form.Control type='password' name='newPassword' value={newPassword} placeholder='Senha de João' className={styles.formInputMobile} onChange={(e) => { setNewPassword(e.target.value) }} />
+                            <Form.Control type='password' required name='newPassword' value={newPassword} placeholder='Senha de João' className={styles.formInputMobile} onChange={(e) => { setNewPassword(e.target.value) }} />
                         </Form.Group>
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Label className={styles.formLabelMobile}>Confirmar Senha:</Form.Label>
-                            <Form.Control type='password' name='equalPassword' value={equalPassword} placeholder='Senha de João Novamente' className={styles.formInputMobile} onChange={(e) => { setEqualPassword(e.target.value) }} />
+                            <Form.Control type='password' required name='equalPassword' value={equalPassword} placeholder='Senha de João Novamente' className={styles.formInputMobile} onChange={(e) => { setEqualPassword(e.target.value) }} />
                         </Form.Group>
                         <div className='d-flex justify-content-center align-items-center pt-2 pb-2'>
                             <button className={`${styles.formButtonMobile} btn btn-primary`}>
@@ -214,7 +223,7 @@ const Navbar = () => {
                         <Form.Group className='d-flex flex-column justify-content-center align-items-center pt-1 pb-2'>
                             <Form.Text className={styles.formTextMobile}>Insira o Email cadastrado em nosso sistema para receber o email de redefinição de senha.</Form.Text>
                             <Form.Label className={styles.formLabelMobile}>Email:</Form.Label>
-                            <Form.Control type='email' name='email' required value={email} onChange={(e) => setEmail(e.target.value)} placeholder='usuario@email.com' className={styles.formInputMobile} />
+                            <Form.Control type='email' required name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='usuario@email.com' className={styles.formInputMobile} />
                         </Form.Group>
                         <div className='d-flex justify-content-center align-items-center pt-2 pb-2'>
                             {!loading && <button className={`${styles.formButtonMobile} btn btn-primary`}>Enviar</button>}

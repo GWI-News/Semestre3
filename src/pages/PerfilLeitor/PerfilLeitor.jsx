@@ -4,8 +4,14 @@ import { useAuthValue } from '../../context/AuthContext';
 import { userAuthentication } from '../../hooks/userAuthentication';
 import styles from './PerfilLeitor.module.css';
 import { CameraFill } from 'react-bootstrap-icons';
+import { useLocation } from 'react-router-dom';
 
 const PerfilLeitor = () => {
+    const location = useLocation()  
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [location])
+
     const { user } = useAuthValue();
     const { logout } = userAuthentication();
     const navigate = useNavigate();

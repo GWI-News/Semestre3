@@ -1,16 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './NewsPage.module.css'
+import { NavLink, useLocation } from 'react-router-dom'
+
+import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { db } from '../../firebase/config'
+import { analytics } from '../../firebase/config'
+import { logEvent } from 'firebase/analytics'
+
 import Card from '../../components/Card/Card'
-import Container from 'react-bootstrap/Container'
-import { Carousel } from 'react-bootstrap';
 import PesquisaTempoReal from '../../components/Pesquisa/Pesquisa'
-import { NavLink } from 'react-router-dom';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { db } from '../../firebase/config';
-import { analytics } from '../../firebase/config';
-import { logEvent } from 'firebase/analytics';
+
+import Container from 'react-bootstrap/Container'
+import Carousel from 'react-bootstrap/Carousel'
 
 const NewsPage = ({ noticias, categoria }) => {
+  const location = useLocation()  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
+  
   useEffect(() => {
     const buscarDados = async () => {
       const docRef = doc(db, 'Metrics', 'categoria')
@@ -36,8 +44,10 @@ const NewsPage = ({ noticias, categoria }) => {
     logEvent(analytics, 'Acesso_Por_Categoria', {
       screen_name: categoria,
     })
-  }, [categoria]
-)  
+  }, [categoria])
+
+  const noticiasCarrossel = noticias.slice(0, 3)
+  const noticiasCards = noticias.slice(3)
 
   return (
     <>
@@ -48,39 +58,25 @@ const NewsPage = ({ noticias, categoria }) => {
         </h1>
 
         <Carousel indicators={false}>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="selbr.jpg"
-              alt="Seleção Brasileira"
-            />
-            <Carousel.Caption className={styles.carouselTexto}>
-              <h3>Seleção brasileira convocada.</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="mercadot.jpg"
-              alt="Mercado de trabalho"
-            />
-            <Carousel.Caption className={styles.carouselTexto}>
-              <h3>A luta da mulher pela equidade no mercado de trabalho.</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="ec.jpg"
-              alt="Economia"
-            />
-            <Carousel.Caption className={styles.carouselTexto}>
-              <h3>Economia do Brasil cresce 0,8%.</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
+          {noticiasCarrossel && noticiasCarrossel.map((carouselItem, i) => {
+              return (
+                <Carousel.Item key={i}>
+                  <NavLink to={`/${categoria}/${carouselItem.id}&${carouselItem.title}`}>
+                    <img
+                      className="d-block w-100"
+                      src={carouselItem.img}
+                      alt={carouselItem.alt_imagem}
+                    />
+                    <Carousel.Caption className={styles.carouselTexto}>
+                      <h3>{carouselItem.titulo}</h3>
+                    </Carousel.Caption>
+                  </NavLink>
+                </Carousel.Item>
+              )
+          })}
         </Carousel>
 
-        {noticias && noticias.map((noticia, i) => {
+        {noticiasCards && noticiasCards.map((noticia, i) => {
           return (
             <Card key={i} noticia={noticia}></Card>
           )

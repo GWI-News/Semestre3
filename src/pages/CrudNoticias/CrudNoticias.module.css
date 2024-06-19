@@ -1,0 +1,37 @@
+.CrudPage {
+  min-height: 76vh;
+  margin: 12vh 0;
+  padding: 0.5rem 0.5rem 0;
+  background-color: #EBEBEB;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tituloPages {
+  font-size: 2.5rem;
+  color: #1D4988;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.perfilAdmSectionCrudButton {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1D4988;
+  background-color: #F9F9F9;
+  border-radius: 5px;
+  margin: 0.25rem;
+  padding: 0.25rem 0.5rem 0.4rem;
+  border: 2px solid #1D4988;
+}
+
+.perfilAdmSectionCrudButton:hover, .perfilAdmSectionCrudButton:focus, .perfilAdmSectionCrudButton:active {
+  background-color: #1D4988;
+  color: #F9F9F9;
+  box-shadow: #1D4988;
+}

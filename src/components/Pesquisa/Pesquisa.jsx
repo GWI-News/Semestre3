@@ -10,7 +10,6 @@ const PesquisaTempoReal = () => {
     const [Pesquisa, setPesquisa] = useState('');
     const [Results, setResults] = useState([]);
     const db = getFirestore();
-    const [mostrarCampoPesquisa, setMostrarCampoPesquisa] = useState(false);
 
     useEffect(() => {
         if (Pesquisa.trim()) {
@@ -38,8 +37,16 @@ const PesquisaTempoReal = () => {
     };
 
     const [showPesquisa, setShowPesquisa] = useState(false)
-    const handleClosePesquisa = () => setShowPesquisa(false)
-    const handleShowPesquisa = () => setShowPesquisa(true)
+    
+    const handleClosePesquisa = () => {
+        setShowPesquisa(false)
+        setPesquisa('')
+    }
+
+    const handleShowPesquisa = () => {
+        setShowPesquisa(true)
+        window.scrollTo(0, 0)
+    }
 
     return (
         <>
@@ -55,7 +62,8 @@ const PesquisaTempoReal = () => {
                     onChange={handlePesquisaChange}
                 />}
             </div>
-            {Results.length === 0 ? null : <Col xs={12} className={`${styles.linha} m-0 flex-column p-2 d-flex justify-content-center align-items-center`}>
+            {Results.length === 0 ? null : <Col xs={12} className={`${styles.linha} m-0 flex-column p-0 pb-4 d-flex justify-content-center align-items-center`}>
+                <h1 className={styles.tituloPages}>Resultados</h1>
                 {Results.map((Result, i) => {
                     return (
                         <Card key={i} noticia={Result}></Card>

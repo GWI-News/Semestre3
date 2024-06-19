@@ -8,7 +8,7 @@ import credentials from "../../credentials.json"
 let firebaseConfig = {}
 const environment = window.location.hostname
 
-if (environment.includes('local')) {
+if (environment.includes('e715f')) {
     firebaseConfig = {
         apiKey: credentials.PROD_API.REACT_APP_PROD_API_KEY,
         authDomain: credentials.PROD_API.REACT_APP_PROD_AUTH_DOMAIN,

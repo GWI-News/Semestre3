@@ -1,4 +1,11 @@
-.pesquisa{
+.tituloPages {
+    font-size: 2.5rem;
+    color: #1D4988;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.pesquisa {
     position: fixed;
     bottom: 13vh;
     right: 0.688rem;
@@ -6,12 +13,12 @@
     display: flex;
 }
 
-.linha{
+.linha {
     border-bottom: 0.25rem dotted #1D4988;
 }
 
 .formInputMobile {
-    background-color: #EBEBEB;
+    background-color: #F9F9F9;
     padding: 0.5rem;
 }
 
@@ -24,28 +31,28 @@
 }
 
 .botaoContainer {
-    background-color: #EBEBEB;
-    padding: 0.625rem 0.625rem; 
-    border-radius: 0.313rem; 
-    border-color: #1D4988; 
-    text-align: center; 
-    display: inline-block; 
+    background-color: #F9F9F9;
+    padding: 0.625rem 0.625rem;
+    border-radius: 0.313rem;
+    border-color: #1D4988;
+    text-align: center;
+    display: inline-block;
 }
 
 .searchButton {
-    background-color: #EBEBEB;
+    background-color: #F9F9F9;
     color: #1D4988;
     padding: 0.625rem;
-    border: 1px solid black; 
-    border-radius: 1.875rem; 
-    padding: 0.625rem; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    border: 1px solid black;
+    border-radius: 1.875rem;
+    padding: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .searchIcon {
-    width: 3.125rem; 
-    height: 3.125rem; 
-    font-size: 3.125rem; 
+    width: 3.125rem;
+    height: 3.125rem;
+    font-size: 3.125rem;
 }

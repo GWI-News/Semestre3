@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, Form } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import loading from './assets/loadingGif.gif';
 
 import { AuthProvider } from './context/AuthContext';
@@ -20,9 +20,12 @@ import SobreNos from './pages/SobreNos/SobreNos';
 import PerfilAdm from './pages/PerfilAdm/PerfilAdm';
 import PerfilLeitor from './pages/PerfilLeitor/PerfilLeitor';
 import Faq from './pages/Faq/Faq';
+import PaginaErro from './pages/PaginaErro/PaginaErro';
+import CrudNoticias from './pages/CrudNoticias/CrudNoticias';
+import CreateNoticia from './pages/CreateNoticia/CreateNoticia';
+
 import Cotacoes from './components/Cotacoes/Cotacoes';
 import Crud from './pages/Crud/Crud';
-import PaginaErro from './pages/PaginaErro/PaginaErro';
 
 function App() {
   const [user, setUser] = useState(undefined)
@@ -83,6 +86,8 @@ function App() {
             <Route path='/Economia/' element={<NewsPage categoria='Economia' noticias={noticias.filter(noticia => noticia.categoria === 'economia')}></NewsPage>}></Route>
             <Route path='/SobreNos/' element={<SobreNos></SobreNos>}></Route>
             <Route path='/Perfil/Adm' element={<PerfilAdm></PerfilAdm>}></Route>
+            <Route path='/Perfil/Adm/CrudNoticias' element={<CrudNoticias></CrudNoticias>}></Route>
+            <Route path='/Perfil/Adm/CreateNoticia' element={<CreateNoticia></CreateNoticia>}></Route>
             <Route path='/Perfil/Leitor' element={<PerfilLeitor></PerfilLeitor>}></Route>
             <Route path='/Faq' element={<Faq></Faq>}></Route>
             <Route path='*' element={<PaginaErro />}></Route>

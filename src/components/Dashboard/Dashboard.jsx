@@ -2,6 +2,10 @@ import ApexCharts from 'react-apexcharts';
 
 export default function Chart({ Metrics }) {
 
+    if (Metrics && Metrics['Todas as Categorias'] !== undefined) {
+        delete Metrics['Todas as Categorias'];
+    }
+
     const categories = Metrics ? Object.keys(Metrics) : [];
     const seriesData = Metrics ? Object.values(Metrics) : [];
 
@@ -23,7 +27,7 @@ export default function Chart({ Metrics }) {
 
     return (
         <ApexCharts
-            height= {320}
+            height= {300}
             width={"100%"}
             options={options}
             series={series}

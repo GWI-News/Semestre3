@@ -12,17 +12,17 @@
 }
 
 .perfilAdmSectionFirst {
-    padding-bottom: 0.75rem;
+    padding-bottom: 1rem;
     border-bottom: 0.25rem solid rgb(235, 235, 235, 0.5);
 }
 
 .perfilAdmSection {
-    padding: 0.75rem 0;
+    padding: 1rem 0;
     border-bottom: 0.25rem solid rgb(235, 235, 235, 0.5);
 }
 
 .perfilAdmSectionLast {
-    padding-top: 0.75rem;
+    padding-top: 1rem;
 }
 
 .perfilAdmSectionTitle {
@@ -47,11 +47,10 @@
     object-fit: contain;
 }
 
-.perfilAdmUserName {
-    font-size: 1.75rem;
-    font-weight: 700;
-    text-align: center;
+.perfilAdmTitle {
+    font-size: 2rem;
     color: #1D4988;
+    text-align: center;
     margin: 0;
 }
 
@@ -66,11 +65,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #F9F9F9;
+    color: #1D4988;
+    background-color: #F9F9F9;
     border-radius: 5px;
-    background-color: #1D4988;
+    margin: 0.25rem;
     padding: 0.25rem 0.5rem 0.4rem;
-    border: none;
+    border: 2px solid #1D4988;
+}
+
+.perfilAdmSectionCrudButton:hover, .perfilAdmSectionCrudButton:focus, .perfilAdmSectionCrudButton:active {
+    background-color: #1D4988;
+    color: #F9F9F9;
+    box-shadow: #1D4988;
 }
 
 .perfilAdmSectionCrudButtonText {

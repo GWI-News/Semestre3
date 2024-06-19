@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './PerfilAdm.module.css'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import { useAuthValue } from '../../context/AuthContext'
 import { userAuthentication } from '../../hooks/userAuthentication'
@@ -24,11 +24,16 @@ const Perfil = () => {
 
     const navigate = useNavigate()
 
+    const location = useLocation()  
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [location])
+
     useEffect(() => {
         if (!user) {
             navigate('/')
         }
-    }, [user, history])
+    }, [user])
 
     const [metrics, setMetrics] = useState({});
     const db = getFirestore();
@@ -45,6 +50,10 @@ const Perfil = () => {
         fetchData();
     }, [db]);
 
+    const crudAccess = (page) => {
+        navigate(page)
+    }
+
     return (
         <>
             <Container fluid className={styles.perfilAdmContainer}>
@@ -57,7 +66,7 @@ const Perfil = () => {
                                 </div>
                             </Col>
                             <Col xs={8} className={`p-0`}>
-                                <h1 className={`${styles.perfilAdmUserName}`}>João do Nunca Imaginário</h1>
+                                <h1 className={`${styles.perfilAdmTitle}`}>João do Nunca Imaginário</h1>
                             </Col>
                         </Row>
                         <Row className={`m-0 p-0`}>
@@ -67,8 +76,10 @@ const Perfil = () => {
                             </Col>
                         </Row>
                         <Row>
-                            <Col>
+                            <Col xs={6}>
                                 <Button className={`${styles.perfilAdmSectionCrudButton}`}>Editar</Button>
+                            </Col>
+                            <Col xs={6}>
                                 <Button onClick={logout} className={`${styles.perfilAdmSectionCrudButton}`}>Sair</Button>
                             </Col>
                         </Row>
@@ -76,7 +87,7 @@ const Perfil = () => {
                     <Row className={`${styles.perfilAdmSection} m-0`}>
                         <Row className='mb-3 m-0 p-0'>
                             <Col className='p-0'>
-                                <h2 className={`${styles.perfilAdmSectionTitle}`}>Usuários</h2>
+                                <h1 className={`${styles.perfilAdmTitle}`}>Painel de Usuários</h1>
                             </Col>
                         </Row>
                         <Row className='m-0 p-0'>
@@ -93,10 +104,10 @@ const Perfil = () => {
                             </Col>
                             <Col xs={6} className='d-flex flex-column justify-content-around pe-4 p-0'>
                                 <Button className={`${styles.perfilAdmSectionCrudButton}`}>
-                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Criar</h4>
+                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Criar Usuário</h4>
                                 </Button>
                                 <Button className={`${styles.perfilAdmSectionCrudButton}`}>
-                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Listar</h4>
+                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Acessar Painel</h4>
                                 </Button>
                             </Col>
                         </Row>
@@ -104,7 +115,7 @@ const Perfil = () => {
                     <Row className={`${styles.perfilAdmSection} m-0`}>
                         <Row className='mb-3 m-0 p-0'>
                             <Col className='p-0'>
-                                <h2 className={`${styles.perfilAdmSectionTitle}`}>Notícias</h2>
+                                <h2 className={`${styles.perfilAdmTitle}`}>Painel de Notícias</h2>
                             </Col>
                         </Row>
                         <Row className='m-0 p-0'>
@@ -120,11 +131,11 @@ const Perfil = () => {
                                 </Row>
                             </Col>
                             <Col xs={6} className='d-flex flex-column justify-content-around pe-4 p-0'>
-                                <Button className={`${styles.perfilAdmSectionCrudButton}`}>
-                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Criar</h4>
+                                <Button onClick={() => { crudAccess('/Perfil/Adm/CreateNoticia') }} className={`${styles.perfilAdmSectionCrudButton}`}>
+                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Criar Notícia</h4>
                                 </Button>
-                                <Button className={`${styles.perfilAdmSectionCrudButton}`}>
-                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Listar</h4>
+                                <Button onClick={() => { crudAccess('/Perfil/Adm/CrudNoticias') }} className={`${styles.perfilAdmSectionCrudButton}`}>
+                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Acessar Painel</h4>
                                 </Button>
                             </Col>
                         </Row>
@@ -132,7 +143,7 @@ const Perfil = () => {
                     <Row className={`${styles.perfilAdmSectionLast} m-0`}>
                         <Row className='mb-3 m-0 p-0'>
                             <Col className='p-0'>
-                                <h2 className={`${styles.perfilAdmSectionTitle}`}>Dashboards</h2>
+                                <h2 className={`${styles.perfilAdmTitle}`}>Dashboards</h2>
                             </Col>
                         </Row>
                         <Row className={`m-0 p-0`}>

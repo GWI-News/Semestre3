@@ -7,7 +7,15 @@
   flex-wrap: wrap;
   background-color: #ebebeb;
   gap: 1rem;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.tituloPages {
+  font-size: 2.5rem;
+  color: #1D4988;
+  margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 .carousel {
